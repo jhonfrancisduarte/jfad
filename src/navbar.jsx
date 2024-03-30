@@ -18,7 +18,7 @@ const Navbar = () => {
 
                     <div className="title-section">
                         <div className="logo">
-                                <a href="/"><img src="images/logo.png" alt="logo" width="70"/></a>
+                                <a href=""><img src="images/logo.png" alt="logo" width="70"/></a>
                         </div>
                         <div className="under-box">
                             <span>Jhon Francis A. Duarte</span>

@@ -72,9 +72,9 @@ export default function Model4(props) {
                     </div>
                   </fieldset>
                   <div className="contact-me-navigation">
-                        <p><span onClick={scrollToWelcome}>Home </span>
-                            <span onClick={scrollToAboutMe}>| About Me </span>
-                            <span onClick={scrollToMyWorks}>| My Works</span>
+                        <p><span onClick={scrollToWelcome}>Home </span>| 
+                            <span onClick={scrollToAboutMe}> About Me </span>| 
+                            <span onClick={scrollToMyWorks}> My Works</span>
                         </p>
                   </div>
                 </form>

@@ -48,9 +48,9 @@ const Works = () => {
             <div className="works-content">
                 <div className="content-scroll">
                     <div className="my-works-navigation">
-                        <p><span onClick={scrollToWelcome}>Home </span>
-                            <span onClick={scrollToAboutMe}>| About Me </span>
-                            <span onClick={scrollToContactMe}>| Contact Me </span>
+                        <p><span onClick={scrollToWelcome}>Home </span>| 
+                            <span onClick={scrollToAboutMe}> About Me </span>| 
+                            <span onClick={scrollToContactMe}> Contact Me</span>
                         </p>
                     </div>
                     <h1 className="my-works-title">My Works</h1>

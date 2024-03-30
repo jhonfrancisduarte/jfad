@@ -5,9 +5,9 @@ import Works from './works.jsx'
 import Contact from './contact.jsx'
 import MouseTrail from './mouseTrail.jsx'
 import Bg from './bg.jsx'
-import Model from './Me3.jsx'
 import Model3 from './AboutMe2.jsx'
 import Model4 from './ContactMeModel.jsx'
+import HomeModel from './HomeModel.jsx'
 import { Canvas, useThree, useFrame } from '@react-three/fiber'
 import { Suspense } from 'react'
 import { OrbitControls } from '@react-three/drei'
@@ -74,7 +74,7 @@ function App() {
                 <directionalLight position={[5, 5, 5]} intensity={1} />
                 <directionalLight position={[-5, -5, -5]} intensity={0.5} />
                 <Suspense fallback={null}>
-                  <Model />
+                  <HomeModel />
                 </Suspense>
                 <OrbitControls
                   minDistance={1.5}  // Set your preferred minimum distance

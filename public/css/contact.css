@@ -102,6 +102,7 @@
     display: flex;
     justify-content: center;
     margin-left: -4px;
+    color: gray;
 }
 
 .contact-me-navigation span{

@@ -8,7 +8,7 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 
 export default function Model3(props) {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('/AboutMe2.glb')
+  const { nodes, materials, animations } = useGLTF('/AboutMe2-transformed.glb')
   const { actions } = useAnimations(animations, group)
   useEffect(() => {
     actions.aboutanim.play()
@@ -142,24 +142,24 @@ export default function Model3(props) {
           <mesh name="Cube009" geometry={nodes.Cube009.geometry} material={materials.ChairSilber} />
           <mesh name="Cube009_1" geometry={nodes.Cube009_1.geometry} material={materials.ChairBlack} />
         </group>
-        <group name="Facebook" position={[1.955, -0.819, -1.185]} rotation={[0, -1.021, 0]} scale={[0.13, 0.13, 0.018]} 
-                              onPointerDown={() => aboutSocialClick("https://www.facebook.com/francis.duarte.319")} 
-                              onPointerOver={aboutPointerOver}
-                              onPointerOut={aboutPointerOut}>
+        <group name="Facebook" position={[1.955, -0.819, -1.185]} rotation={[0, -1.021, 0]} scale={[0.13, 0.13, 0.018]}
+                                      onPointerDown={() => aboutSocialClick("https://www.facebook.com/francis.duarte.319")} 
+                                      onPointerOver={aboutPointerOver}
+                                      onPointerOut={aboutPointerOut}>
           <mesh name="Cube" geometry={nodes.Cube.geometry} material={materials['white.003']} />
           <mesh name="Cube_1" geometry={nodes.Cube_1.geometry} material={materials['Computer.002']} />
         </group>
-        <group name="Youtube" position={[2.146, -0.848, -0.788]} rotation={[0, -1.183, 0]} scale={[0.13, 0.096, 0.018]} 
-                              onPointerDown={() => aboutSocialClick("https://www.youtube.com/channel/UCDzjowV4oNJ_KEx2zJaMhYg")}
-                              onPointerOver={aboutPointerOver}
-                              onPointerOut={aboutPointerOut}>
+        <group name="Youtube" position={[2.146, -0.848, -0.788]} rotation={[0, -1.183, 0]} scale={[0.13, 0.096, 0.018]}
+                                      onPointerDown={() => aboutSocialClick("https://www.youtube.com/channel/UCDzjowV4oNJ_KEx2zJaMhYg")}
+                                      onPointerOver={aboutPointerOver}
+                                      onPointerOut={aboutPointerOut}>
           <mesh name="Cube010" geometry={nodes.Cube010.geometry} material={materials['white.004']} />
           <mesh name="Cube010_1" geometry={nodes.Cube010_1.geometry} material={materials['Computer.003']} />
         </group>
-        <group name="Linkedin" position={[2.271, -0.834, -0.364]} rotation={[0, -1.36, 0]} scale={[0.13, 0.13, 0.018]} 
-                              onPointerDown={() => aboutSocialClick("https://www.linkedin.com/in/jhon-francis-duarte-a93931257/")} 
-                              onPointerOver={aboutPointerOver}
-                              onPointerOut={aboutPointerOut}>
+        <group name="Linkedin" position={[2.271, -0.834, -0.364]} rotation={[0, -1.36, 0]} scale={[0.13, 0.13, 0.018]}
+                                      onPointerDown={() => aboutSocialClick("https://www.linkedin.com/in/jhon-francis-duarte-a93931257/")} 
+                                      onPointerOver={aboutPointerOver}
+                                      onPointerOut={aboutPointerOut}>
           <mesh name="Cube016" geometry={nodes.Cube016.geometry} material={materials['white.005']} />
           <mesh name="Cube016_1" geometry={nodes.Cube016_1.geometry} material={materials['Computer.004']} />
         </group>
@@ -168,56 +168,56 @@ export default function Model3(props) {
           <mesh name="Torus002_1" geometry={nodes.Torus002_1.geometry} material={materials['Computer.001']} />
         </group>
         <mesh name="Name" geometry={nodes.Name.geometry} material={materials.white} position={[-0.019, -1.205, 0.039]} rotation={[Math.PI / 2, 0, 2.704]} scale={0.374} />
-        <mesh name="AboutScreen" geometry={nodes.AboutScreen.geometry} material={materials.screen} position={[0.1, -1.205, -0.015]} rotation={[Math.PI, 0, 0]} scale={[-2.191, -0.268, -2.191]} />
         <mesh name="Title" geometry={nodes.Title.geometry} material={materials.light} position={[-1.553, 0.226, -1.693]} rotation={[Math.PI / 2, 0, -0.712]} scale={0.222} />
-        <group name="PersonalData" position={[-1.553, -0.047, -1.693]} rotation={[Math.PI / 2, 0, -0.712]} scale={0.156} 
-                                    onPointerDown={() => aboutMenuClick('PersonalData')}  
-                                    onPointerOver={aboutPointerOver}
-                                    onPointerOut={aboutPointerOut}>
+        <group name="PersonalData" position={[-1.553, -0.047, -1.693]} rotation={[Math.PI / 2, 0, -0.712]} scale={0.156}
+                                            onPointerDown={() => aboutMenuClick('PersonalData')}  
+                                            onPointerOver={aboutPointerOver}
+                                            onPointerOut={aboutPointerOut}>
           <mesh name="Text005" geometry={nodes.Text005.geometry} material={materials['light.001']} />
           <mesh name="Text005_1" geometry={nodes.Text005_1.geometry} material={materials['screen.001']} />
         </group>
-        <group name="Skills" position={[-1.741, -0.223, -1.487]} rotation={[Math.PI / 2, 0, -0.871]} scale={0.156} 
-                                    onPointerDown={() => aboutMenuClick('Skills')} 
-                                    onPointerOver={aboutPointerOver}
-                                    onPointerOut={aboutPointerOut}>
+        <group name="Skills" position={[-1.741, -0.223, -1.487]} rotation={[Math.PI / 2, 0, -0.871]} scale={0.156}
+                                            onPointerDown={() => aboutMenuClick('Skills')} 
+                                            onPointerOver={aboutPointerOver}
+                                            onPointerOut={aboutPointerOut}>
           <mesh name="Text006" geometry={nodes.Text006.geometry} material={materials['light.002']} />
           <mesh name="Text006_1" geometry={nodes.Text006_1.geometry} material={materials['screen.002']} />
         </group>
-        <group name="Experience" position={[-1.59, -0.395, -1.652]} rotation={[Math.PI / 2, 0, -0.712]} scale={0.156} 
-                                    onPointerDown={() => aboutMenuClick('Experience')} 
-                                    onPointerOver={aboutPointerOver}
-                                    onPointerOut={aboutPointerOut}>
+        <group name="Experience" position={[-1.59, -0.395, -1.652]} rotation={[Math.PI / 2, 0, -0.712]} scale={0.156}
+                                            onPointerDown={() => aboutMenuClick('Experience')} 
+                                            onPointerOver={aboutPointerOver}
+                                            onPointerOut={aboutPointerOut}>
           <mesh name="Text007" geometry={nodes.Text007.geometry} material={materials['light.003']} />
           <mesh name="Text007_1" geometry={nodes.Text007_1.geometry} material={materials['screen.003']} />
         </group>
-        <mesh name="AboutScreen001" geometry={nodes.AboutScreen001.geometry} material={materials['white.001']} position={[0.1, -1.205, -0.015]} rotation={[Math.PI, 0, 0]} scale={[-2.191, -0.268, -2.191]} />
-        <mesh name="AboutScreen002" geometry={nodes.AboutScreen002.geometry} material={materials.screen} position={[0.1, -1.205, 0.136]} rotation={[-Math.PI, 1.222, 0]} scale={[-2.191, -0.268, -2.191]} />
-        <mesh name="AboutScreen003" geometry={nodes.AboutScreen003.geometry} material={materials['white.001']} position={[1.453, 0.096, -1.665]} rotation={[-Math.PI, 1.139, 0]} scale={[-2.191, -0.268, -2.191]} />
-        <group name="MyWorks" position={[0.761, -0.223, -2.131]} rotation={[Math.PI / 2, 0, 0.308]} scale={0.156} 
-                                    onPointerDown={() => aboutMenuClick('MyWorks')} 
-                                    onPointerOver={aboutPointerOver}
-                                    onPointerOut={aboutPointerOut}>
+        <group name="MyWorks" position={[0.761, -0.223, -2.131]} rotation={[Math.PI / 2, 0, 0.308]} scale={0.156}
+                                            onPointerDown={() => aboutMenuClick('MyWorks')} 
+                                            onPointerOver={aboutPointerOver}
+                                            onPointerOut={aboutPointerOut}>
           <mesh name="Text014" geometry={nodes.Text014.geometry} material={materials['light.005']} />
           <mesh name="Text014_1" geometry={nodes.Text014_1.geometry} material={materials['screen.005']} />
         </group>
-        <group name="ContactMe" position={[0.971, -0.395, -2.054]} rotation={[Math.PI / 2, 0, 0.468]} scale={0.156} 
-                                    onPointerDown={() => aboutMenuClick('ContactMe')} 
-                                    onPointerOver={aboutPointerOver}
-                                    onPointerOut={aboutPointerOut}>
+        <group name="ContactMe" position={[0.971, -0.395, -2.054]} rotation={[Math.PI / 2, 0, 0.468]} scale={0.156}
+                                            onPointerDown={() => aboutMenuClick('ContactMe')} 
+                                            onPointerOver={aboutPointerOver}
+                                            onPointerOut={aboutPointerOut}>
           <mesh name="Text015" geometry={nodes.Text015.geometry} material={materials['light.006']} />
           <mesh name="Text015_1" geometry={nodes.Text015_1.geometry} material={materials['screen.006']} />
         </group>
-        <group name="Home" position={[0.73, -0.047, -2.145]} rotation={[Math.PI / 2, 0, 0.34]} scale={0.133} 
-                                    onPointerDown={() => aboutMenuClick('Home')} 
-                                    onPointerOver={aboutPointerOver}
-                                    onPointerOut={aboutPointerOut}>
+        <group name="Home" position={[0.73, -0.047, -2.145]} rotation={[Math.PI / 2, 0, 0.34]} scale={0.133}
+                                            onPointerDown={() => aboutMenuClick('Home')} 
+                                            onPointerOver={aboutPointerOver}
+                                            onPointerOut={aboutPointerOut}>
           <mesh name="Text016" geometry={nodes.Text016.geometry} material={materials['light.004']} />
           <mesh name="Text016_1" geometry={nodes.Text016_1.geometry} material={materials['screen.004']} />
         </group>
+        <mesh name="AboutScreen" geometry={nodes.AboutScreen.geometry} material={materials.screen} position={[0.1, -1.205, -0.015]} rotation={[Math.PI, 0, 0]} scale={[-2.191, -0.268, -2.191]} />
+        <mesh name="AboutScreen002" geometry={nodes.AboutScreen002.geometry} material={materials.screen} position={[0.1, -1.205, -0.015]} rotation={[Math.PI, 0, 0]} scale={[-2.191, -0.268, -2.191]} />
+        <mesh name="AboutScreen001" geometry={nodes.AboutScreen001.geometry} material={materials['white.001']} position={[0.1, -1.205, -0.015]} rotation={[Math.PI, 0, 0]} scale={[-2.191, -0.268, -2.191]} />
+        <mesh name="AboutScreen003" geometry={nodes.AboutScreen003.geometry} material={materials['white.001']} position={[0.1, -1.205, -0.015]} rotation={[Math.PI, 0, 0]} scale={[-2.191, -0.268, -2.191]} />
       </group>
     </group>
   )
 }
 
-useGLTF.preload('/AboutMe2.glb')
+useGLTF.preload('/AboutMe2-transformed.glb')

@@ -1,28 +1,46 @@
 import React, { useEffect , useRef} from 'react';
 
-const scrollToWelcome = () => {
-    const welcomeSection = document.getElementById('welcome');
-    if (welcomeSection) {
-      welcomeSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-  
-  const scrollToContactMe = () => {
-    const welcomeSection = document.getElementById('contact-me');
-    if (welcomeSection) {
-      welcomeSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-  
-  const scrollToAboutMe = () => {
-    const welcomeSection = document.getElementById('aboutme');
-    if (welcomeSection) {
-      welcomeSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
 
 const Works = () => {
+    const thisSectionClass1 = document.querySelector('.myWorksPage');
+
+    const scrollToWelcome = () => {
+        const welcomeSection = document.getElementById('welcome');
+        const targetClass1 = document.querySelector('.my-canvas');
+        const targetClass2 = document.querySelector('.homePage');
+        if (welcomeSection) {
+            thisSectionClass1.classList.remove('active');
+            targetClass1.classList.add('active');
+            targetClass2.classList.add('active');
+            welcomeSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+    
+    const scrollToContactMe = () => {
+        const welcomeSection = document.getElementById('contact-me');
+        const targetClass1 = document.querySelector('.my-canvas3');
+        const targetClass2 = document.querySelector('.contactMePage');
+        if (welcomeSection) {
+            thisSectionClass1.classList.remove('active');
+            targetClass1.classList.add('active');
+            targetClass2.classList.add('active');
+            welcomeSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+    
+    const scrollToAboutMe = () => {
+        const welcomeSection = document.getElementById('aboutme');
+        const targetClass1 = document.querySelector('.my-canvas2');
+        const targetClass2 = document.querySelector('.aboutMePage');
+        if (welcomeSection) {
+            thisSectionClass1.classList.remove('active');
+            targetClass1.classList.add('active');
+            targetClass2.classList.add('active');
+            welcomeSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
 
     const containerRef = useRef(null);
     const COL_COUNT = 4; // Set this to however many columns you want
@@ -58,7 +76,14 @@ const Works = () => {
 
                     <div ref={containerRef} id="block-contain">
                         <div className="block" style={{ height: '200px' }}>
-                            <div className="inner">1</div>
+                            <div className="inner">
+                                <div className='project project1'>
+                                    <img src="public/images/wildwildwest.png"/>
+                                    <div className="project-link">
+                                        <p className='project-name'><a href='https://jhonfrancisduarte.itch.io/wildwildwest' target='_blank'>Wild Wild West</a></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className="block" style={{ height: '230px' }}>
                             <div className="inner">2</div>

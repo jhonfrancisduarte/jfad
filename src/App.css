@@ -8,33 +8,62 @@
 
 .pages-container{
   height: 100vh;
-  width: 100%;
+  width: 100vw !important;
   display: flex;
   overflow: hidden;
 }
 
-.homePage{
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-}
+/* -----------------Main Pagination------------------- */
 
-.aboutMePage{
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-}
-
-.myWorksPage{
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-}
-
+.homePage,
+.aboutMePage,
+.myWorksPage,
 .contactMePage{
   position: relative;
-  width: 100vw;
+  width: 0vw;
   height: 100vh;
+  transition: 0.5s ease-in-out;
+}
+
+.homePage.active,
+.aboutMePage.active,
+.myWorksPage.active,
+.contactMePage.active{
+  width: 100vw;
+}
+
+.my-canvas,
+.my-canvas2,
+.my-canvas3{
+  width: 0 !important;
+  height: 100% !important; 
+  position: absolute !important; 
+  top: 0; 
+  left: 0; 
+  z-index: 1;
+  cursor: grab;
+  transition: 0.5s ease-in-out;
+}
+
+.my-canvas.active, 
+.my-canvas2.active,
+.my-canvas3.active{
+  width: 100% !important;
+}
+
+/* ------------------------End of Main Pagination---------------------- */
+
+
+
+.about,
+.works,
+.contact{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  transition: 0.5s ease-in-out;
 }
 
 .copyright{
@@ -44,34 +73,9 @@
   opacity: .2;
 }
 
-.my-canvas{
-  width: 100vw  !important;
-  height: 100% !important; 
-  position: absolute !important; 
-  top: 0; 
-  left: 0; 
-  z-index: 1;
-  cursor: grab;
-}
-
-.my-canvas2{
-  width: 100vw !important;
-  height: 100% !important; 
-  position: absolute !important; 
-  top: 0; 
-  left: 0; 
-  z-index: 1;
-  cursor: grab;
-}
-
-.my-canvas3{
-  width: 100vw !important;
-  height: 100% !important; 
-  position: absolute !important; 
-  top: 0; 
-  left: 0; 
-  z-index: 1;
-  cursor: grab;
+#my-works-content,
+#contactme{
+  justify-content: center;
 }
 
 .main-nav-links{
@@ -90,6 +94,21 @@
 @media (max-width: 768px){
   .pages-container{
     display: block;
+    overflow: hidden;
+  }
+
+  .my-canvas,
+  .my-canvas2,
+  .my-canvas3{
+    width: 100% !important;
+  }
+
+  .homePage,
+  .aboutMePage,
+  .myWorksPage,
+  .contactMePage{
+    width: 100vw;
+    overflow: hidden !important;
   }
 
   .copyright{

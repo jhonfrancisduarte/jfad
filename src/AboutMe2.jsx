@@ -29,6 +29,9 @@ export default function Model3(props) {
     }
   };
 
+  const thisSectionClass1 = document.querySelector('.my-canvas2');
+  const thisSectionClass2 = document.querySelector('.aboutMePage');
+
   const aboutMenuClick = (menu) => {
     const personalData = document.getElementById('personal-data');
     const skills = document.getElementById('my-skills');
@@ -57,20 +60,45 @@ export default function Model3(props) {
         }
         break;
       case 'Home':
+        const targetClass1 = document.querySelector('.my-canvas');
+        const targetClass2 = document.querySelector('.homePage');
         const targetElement = document.getElementById('welcome');
         if (targetElement) {
+          skills.classList.remove('active');
+          personalData.classList.remove('active');
+          experience.classList.remove('active');
+          thisSectionClass1.classList.remove('active');
+          thisSectionClass2.classList.remove('active');
+          targetClass1.classList.add('active');
+          targetClass2.classList.add('active');
           targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
         break;
       case 'MyWorks':
+        const targetClass3 = document.querySelector('.myWorksPage');
         const targetElement2 = document.getElementById('my-works');
         if (targetElement2) {
+          skills.classList.remove('active');
+          personalData.classList.remove('active');
+          experience.classList.remove('active');
+          thisSectionClass1.classList.remove('active');
+          thisSectionClass2.classList.remove('active');
+          targetClass3.classList.add('active');
           targetElement2.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
         break;
       case 'ContactMe':
+        const targetClass5 = document.querySelector('.my-canvas3');
+        const targetClass6 = document.querySelector('.contactMePage');
         const targetElement3 = document.getElementById('contact-me');
         if (targetElement3) {
+          skills.classList.remove('active');
+          personalData.classList.remove('active');
+          experience.classList.remove('active');
+          thisSectionClass1.classList.remove('active');
+          thisSectionClass2.classList.remove('active');
+          targetClass5.classList.add('active');
+          targetClass6.classList.add('active');
           targetElement3.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
         break;

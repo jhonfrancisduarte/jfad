@@ -6,29 +6,49 @@ Command: npx gltfjsx@6.2.16 ContactMeModel.glb
 import React, { useRef, useEffect } from 'react'
 import { useGLTF, Html } from '@react-three/drei'
 
-const scrollToWelcome = () => {
-  const welcomeSection = document.getElementById('welcome');
-  if (welcomeSection) {
-    welcomeSection.scrollIntoView({ behavior: 'smooth' });
-  }
-};
-
-const scrollToMyWorks = () => {
-  const welcomeSection = document.getElementById('my-works');
-  if (welcomeSection) {
-    welcomeSection.scrollIntoView({ behavior: 'smooth' });
-  }
-};
-
-const scrollToAboutMe = () => {
-  const welcomeSection = document.getElementById('aboutme');
-  if (welcomeSection) {
-    welcomeSection.scrollIntoView({ behavior: 'smooth' });
-  }
-};
 
 export default function Model4(props) {
   const { nodes, materials } = useGLTF('/ContactMeModel.glb')
+
+  const thisSectionClass1 = document.querySelector('.my-canvas3');
+  const thisSectionClass2 = document.querySelector('.contactMePage');
+
+  const scrollToWelcome = () => {
+    const targetClass1 = document.querySelector('.my-canvas');
+    const targetClass2 = document.querySelector('.homePage');
+    const welcomeSection = document.getElementById('welcome');
+    if (welcomeSection) {
+      thisSectionClass1.classList.remove('active');
+      thisSectionClass2.classList.remove('active');
+      targetClass1.classList.add('active');
+      targetClass2.classList.add('active');
+      welcomeSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
+  const scrollToMyWorks = () => {
+    const targetClass1 = document.querySelector('.myWorksPage');
+    const welcomeSection = document.getElementById('my-works');
+    if (welcomeSection) {
+      thisSectionClass1.classList.remove('active');
+      thisSectionClass2.classList.remove('active');
+      targetClass1.classList.add('active');
+      welcomeSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
+  const scrollToAboutMe = () => {
+    const targetClass1 = document.querySelector('.my-canvas2');
+    const targetClass2 = document.querySelector('.aboutMePage');
+    const welcomeSection = document.getElementById('aboutme');
+    if (welcomeSection) {
+      thisSectionClass1.classList.remove('active');
+      thisSectionClass2.classList.remove('active');
+      targetClass1.classList.add('active');
+      targetClass2.classList.add('active');
+      welcomeSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <group {...props} dispose={null}>

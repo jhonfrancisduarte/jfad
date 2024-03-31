@@ -82,32 +82,34 @@ body {
 .main-div{
     position: relative;
     width: 100%;
-    height: 100vh;
-    overflow-x: hidden;
+    height: 100%;
+    overflow: hidden;
     display: flex;
+    transition: 0.5s ease-in-out;
 }
 
 .header{
     position: relative;
     display: block;
-    width: 100vw;
+    width: 100%;
     height: 100%;
     height: inherit;
     justify-content: left;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
   
 /* -------------------------------------------------------------- */
 
 .header .title-section{
-    margin-top: 60px;
     display: flex;
     width: 100%;
+    height: 100%;
     justify-content: left;
     align-items: center;
     overflow: hidden;
+    margin-top: -80px;
 }
 
 .greetings{
@@ -117,6 +119,57 @@ body {
     margin-left: 100px;
     margin-top: 220px;
     display: block;
+}
+
+.help{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.help-button{
+    width: 25px;
+    filter: invert();
+    margin-top: 10px;
+    margin-right: 10px;
+    opacity: 0.3;
+}
+
+.help-button:hover{
+    opacity: 1;
+}
+
+.instruction{
+    position: absolute; top: 10px; right: -300px;
+    border-radius: 5px;
+    width: 210px;
+    padding: 10px;
+    height: 70px;
+    background: black;
+    display: block;
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.instruction.active{
+    position: absolute; top: 10px; right: 10px;
+}
+
+.instruction-close{
+    position: absolute;
+    top: -15px; right: 5px;
+    font-size: 18px !important;
+    cursor: pointer;
+}
+
+.instruction-close:hover{
+    color: #44fce3;
+}
+
+.instruction p{
+    font-size: 12px;
+    line-height: 10px;
 }
 
 @media (min-width: 1024px){
@@ -206,6 +259,10 @@ body {
         justify-content: center;
         align-items: center;
         overflow: hidden;
+    }
+
+    .help{
+        display: none;
     }
 
     .smedia-icons{

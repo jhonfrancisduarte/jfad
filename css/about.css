@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-#aboutme-content{
-    position: relative;
-    display: flex;
-    width: 100vw;
-    height: 100%;
-    overflow: hidden;
-}
 
 #aboutme-content h2{
     color: #d2ffff;
@@ -43,6 +36,11 @@
 .p-data-content h4 span{
     font-weight: 400;
     margin-left: 10px;
+    color: white;
+}
+
+.p-data-content h4{
+    color: white;
 }
 
 .p-data-content{
@@ -94,6 +92,7 @@
 }
 
 .closeThis{
+    color: white;
     cursor: pointer;
     font-size: 20px;
 }

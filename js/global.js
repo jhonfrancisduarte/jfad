@@ -10,6 +10,14 @@ jQuery(document).ready(function(){
     jQuery(".menu-overlay").click(function(){
       jQuery(".hamburger").removeClass("is-active"); // Remove "is-active" from the hamburger
     });
+
+    jQuery(".help-button").click(function(){
+      jQuery(".instruction").addClass("active");
+    });
+
+    jQuery(".instruction-close").click(function(){
+      jQuery(".instruction").removeClass("active");
+    });
 });
 
 // Dynamic putting active class

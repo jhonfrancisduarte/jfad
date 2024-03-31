@@ -15,6 +15,15 @@ const Navbar = () => {
             <div className="main-div">
 
                 <div className="header">
+                    <div className="help">
+                        <img className='help-button' src='public/images/help.png'/>
+                        <div className="instruction">
+                            <p className='instruction-close'>×</p>
+                            <p>Left mouse press and drag to rotate</p>
+                            <p>Right mouse press and drag to move</p>
+                            <p>Scroll mouse to zoom in and out</p>
+                        </div>
+                    </div>
 
                     <div className="title-section">
                         <div className="logo">
@@ -50,7 +59,7 @@ const Navbar = () => {
                                         className={activeNav === 'welcome' ? 'active' : ''} 
                                         onClick={() => scrollToSection('welcome')}
                                     >
-                                        Welcome!
+                                        Home
                                     </a>
                                 </li> 
                                 <li className="navitem">

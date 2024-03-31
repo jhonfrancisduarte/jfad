@@ -19,23 +19,43 @@ export default function HomeModel(props) {
     cursor: 'pointer', // Set cursor to pointer
   };
 
+  const thisSectionClass1 = document.querySelector('.my-canvas');
+  const thisSectionClass2 = document.querySelector('.homePage');
+
   const toAboutPage = () => {
+    const targetClass1 = document.querySelector('.my-canvas2');
+    const targetClass2 = document.querySelector('.aboutMePage');
     const targetElement = document.getElementById('aboutme');
+
     if (targetElement) {
+      thisSectionClass1.classList.remove('active');
+      thisSectionClass2.classList.remove('active');
+      targetClass1.classList.add('active');
+      targetClass2.classList.add('active');
       targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   const toMyWorksPage = () => {
+    const targetClass1 = document.querySelector('.myWorksPage');
     const targetElement = document.getElementById('my-works');
     if (targetElement) {
+      thisSectionClass1.classList.remove('active');
+      thisSectionClass2.classList.remove('active');
+      targetClass1.classList.add('active');
       targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   const toContactMePage = () => {
+    const targetClass1 = document.querySelector('.my-canvas3');
+    const targetClass2 = document.querySelector('.contactMePage');
     const targetElement = document.getElementById('contact-me');
     if (targetElement) {
+      thisSectionClass1.classList.remove('active');
+      thisSectionClass2.classList.remove('active');
+      targetClass1.classList.add('active');
+      targetClass2.classList.add('active');
       targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };

@@ -12,6 +12,7 @@ import { Canvas, useThree, useFrame } from '@react-three/fiber'
 import { Suspense } from 'react'
 import { OrbitControls } from '@react-three/drei'
 import React, { useRef } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 const CustomOrbitControls = () => {
   const { camera, gl } = useThree();
@@ -26,15 +27,24 @@ const CustomOrbitControls = () => {
       controls.current.update();
     }
   });
-
   return <OrbitControls ref={controls} args={[camera, gl.domElement]} />;
 };
 
+
 function App() {
-  const canvasClassName = 'my-canvas';
+  const canvasClassName = 'my-canvas active';
   const canvasClassName2 = 'my-canvas2';
   const canvasClassName3 = 'my-canvas3';
+  
+  const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
+  console.log('isDesktop:', isDesktop);
 
+  const positionHomeModel = isDesktop ? [0.8, 0.2, -0.5] : [0, 0, 0]; 
+  const rotationHomeModel = isDesktop ? [0, Math.PI / 200, 0] : [0, Math.PI / 5, 0];
+
+  const positionAboutModel = isDesktop ? [0, 0.9, 0] : [0, 0, 0]; 
+  const rotationAboutModel = isDesktop ? [0, Math.PI / 4, 0] : [0, 0, 0];
+  
   const assignIdToCanvas = () => {
     const canvasElement = document.querySelector(`.${canvasClassName}`);
     if (canvasElement) {
@@ -60,11 +70,11 @@ function App() {
       <>
         <div className="pages-container">
 
-          <div className='homePage' id='welcome'>
+          <div className='homePage active' id='welcome'>
             <Navbar />
             <Canvas
                   className={canvasClassName}
-                  camera={{ position: [1, 0, 2.8], fov: 50 }}
+                  camera={{ position: [2, 0, 2.8], fov: 50 }}
                   gl={{ antialias: true }}
                   onCreated={({ gl }) => {
                     assignIdToCanvas();
@@ -74,11 +84,11 @@ function App() {
                 <directionalLight position={[5, 5, 5]} intensity={1} />
                 <directionalLight position={[-5, -5, -5]} intensity={0.5} />
                 <Suspense fallback={null}>
-                  <HomeModel />
+                  <HomeModel position={positionHomeModel} rotation={rotationHomeModel}/>
                 </Suspense>
                 <OrbitControls
                   minDistance={1.5}  // Set your preferred minimum distance
-                  maxDistance={3}  // Set your preferred maximum distance
+                  maxDistance={6}  // Set your preferred maximum distance
                 />
             </Canvas>
             <Bg />
@@ -88,7 +98,7 @@ function App() {
                 <About />
                 <Canvas
                   className={canvasClassName2}
-                  camera={{ position: [1, 0, 3.5], fov: 50 }}
+                  camera={{ position: [1, 3.7, 5.5], fov: 50 }}
                   gl={{ antialias: true, shadowMap: { enabled: true } }}
                   onCreated={({ gl }) => {
                     assignIdToCanvas2();
@@ -108,7 +118,7 @@ function App() {
                                   castShadow shadow-mapSize={{ width: 1024, height: 1024 }}
                                   shadow-bias={-0.001}/>
                 <Suspense fallback={null}>
-                  <Model3 />
+                  <Model3 position={positionAboutModel}/>
                 </Suspense>
                 <OrbitControls
                   minDistance={1.5}  // Set your preferred minimum distance

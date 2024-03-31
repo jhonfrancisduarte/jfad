@@ -1,14 +1,12 @@
 import React, { useEffect , useRef} from 'react';
 
-
-
 const Works = () => {
-    const thisSectionClass1 = document.querySelector('.myWorksPage');
 
     const scrollToWelcome = () => {
         const welcomeSection = document.getElementById('welcome');
         const targetClass1 = document.querySelector('.my-canvas');
         const targetClass2 = document.querySelector('.homePage');
+        const thisSectionClass1 = document.querySelector('.myWorksPage');
         if (welcomeSection) {
             thisSectionClass1.classList.remove('active');
             targetClass1.classList.add('active');
@@ -18,26 +16,28 @@ const Works = () => {
     };
     
     const scrollToContactMe = () => {
-        const welcomeSection = document.getElementById('contact-me');
+        const contactSection = document.getElementById('contact-me');
         const targetClass1 = document.querySelector('.my-canvas3');
         const targetClass2 = document.querySelector('.contactMePage');
-        if (welcomeSection) {
+        const thisSectionClass1 = document.querySelector('.myWorksPage');
+        if (contactSection) {
             thisSectionClass1.classList.remove('active');
             targetClass1.classList.add('active');
             targetClass2.classList.add('active');
-            welcomeSection.scrollIntoView({ behavior: 'smooth' });
+            contactSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
     
     const scrollToAboutMe = () => {
-        const welcomeSection = document.getElementById('aboutme');
+        const aboutSection = document.getElementById('aboutme');
         const targetClass1 = document.querySelector('.my-canvas2');
         const targetClass2 = document.querySelector('.aboutMePage');
-        if (welcomeSection) {
+        const thisSectionClass1 = document.querySelector('.myWorksPage');
+        if (aboutSection) {
             thisSectionClass1.classList.remove('active');
             targetClass1.classList.add('active');
             targetClass2.classList.add('active');
-            welcomeSection.scrollIntoView({ behavior: 'smooth' });
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
 

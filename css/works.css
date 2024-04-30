@@ -149,12 +149,13 @@
     color: #baffff;
 }
 
-  /* -------------------------------------- Mobile View --------------------------------- */
+  /* -------------------------------------- Mobile and Tablet View --------------------------------- */
 
-@media (max-width: 768px){
+@media (max-width: 1024px){
     .works-content{
         padding-left: 0;
         padding-right: 0;
+        z-index: 2;
     }
 
     .content-scroll{

@@ -37,7 +37,6 @@ function App() {
   const canvasClassName3 = 'my-canvas3';
   
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
-  console.log('isDesktop:', isDesktop);
 
   const positionHomeModel = isDesktop ? [0.8, 0.2, -0.5] : [0, 0, 0]; 
   const rotationHomeModel = isDesktop ? [0, Math.PI / 200, 0] : [0, Math.PI / 5, 0];
@@ -93,40 +92,40 @@ function App() {
                   maxDistance={6}  // Set your preferred maximum distance
                 />
             </Canvas>
-            <Bg />
+            {isDesktop && <Bg />}
           </div>
 
           <div className="aboutMePage" id='aboutme'>
                 <About />
                 <Canvas
-                  className={canvasClassName2}
-                  camera={{ position: [1, 3.7, 5.5], fov: 50 }}
-                  gl={{ antialias: true, shadowMap: { enabled: true } }}
-                  onCreated={({ gl }) => {
-                    assignIdToCanvas2();
-                  }}
-                >
-                <ambientLight intensity={0.5} />
-                <directionalLight position={[5, 5, 5]} intensity={1} 
-                                  castShadow shadow-mapSize={{ width: 1024, height: 1024 }}
-                                  shadow-bias={-0.001}/>
-                <directionalLight position={[-5, -5, -5]} intensity={0.5} 
-                                  castShadow shadow-mapSize={{ width: 1024, height: 1024 }}
-                                  shadow-bias={-0.001}/>
-                <directionalLight position={[0, 0, -5]} intensity={0.5} 
-                                  castShadow shadow-mapSize={{ width: 1024, height: 1024 }}
-                                  shadow-bias={-0.001}/>
-                <directionalLight position={[5, 0, 0]} intensity={0.5} 
-                                  castShadow shadow-mapSize={{ width: 1024, height: 1024 }}
-                                  shadow-bias={-0.001}/>
-                <Suspense fallback={null}>
-                  <Model3 position={positionAboutModel}/>
-                </Suspense>
-                <OrbitControls
-                  minDistance={1.5}  // Set your preferred minimum distance
-                  maxDistance={6}  // Set your preferred maximum distance
-                />
-            </Canvas>
+                    className={canvasClassName2}
+                    camera={{ position: [1, 3.7, 5.5], fov: 50 }}
+                    gl={{ antialias: true, shadowMap: { enabled: true } }}
+                    onCreated={({ gl }) => {
+                      assignIdToCanvas2();
+                    }}
+                  >
+                  <ambientLight intensity={0.5} />
+                  <directionalLight position={[5, 5, 5]} intensity={1} 
+                                    castShadow shadow-mapSize={{ width: 1024, height: 1024 }}
+                                    shadow-bias={-0.001}/>
+                  <directionalLight position={[-5, -5, -5]} intensity={0.5} 
+                                    castShadow shadow-mapSize={{ width: 1024, height: 1024 }}
+                                    shadow-bias={-0.001}/>
+                  <directionalLight position={[0, 0, -5]} intensity={0.5} 
+                                    castShadow shadow-mapSize={{ width: 1024, height: 1024 }}
+                                    shadow-bias={-0.001}/>
+                  <directionalLight position={[5, 0, 0]} intensity={0.5} 
+                                    castShadow shadow-mapSize={{ width: 1024, height: 1024 }}
+                                    shadow-bias={-0.001}/>
+                  <Suspense fallback={null}>
+                    <Model3 position={positionAboutModel}/>
+                  </Suspense>
+                  <OrbitControls
+                    minDistance={1.5}  // Set your preferred minimum distance
+                    maxDistance={6}  // Set your preferred maximum distance
+                  />
+              </Canvas>
           </div>
 
           <div className="myWorksPage" id='my-works'>
@@ -166,6 +165,9 @@ function App() {
 
           <div className="copyright">
             <p>ⓒ 2024 by JFAD</p>
+          </div>
+
+          <div className="mobile-bg">
           </div>
 
         </div>

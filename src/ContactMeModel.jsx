@@ -5,6 +5,7 @@ Command: npx gltfjsx@6.2.16 ContactMeModel.glb
 
 import React, { useRef, useEffect } from 'react'
 import { useGLTF, Html } from '@react-three/drei'
+import emailjs from '@emailjs/browser';
 
 
 export default function Model4(props) {
@@ -50,46 +51,70 @@ export default function Model4(props) {
     }
   };
 
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_rbvd1ns', 'template_3nawj3n', form.current, {
+        publicKey: 'pxk7ZQtUFyHVE9PFC',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          document.querySelector('.success-message').style.display = 'block';
+          form.current.reset();
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+          document.querySelector('.failed-message').style.display = 'block';
+        },
+      );
+  };
+
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.RearCam.geometry} material={materials['Glass.001']} position={[-0.003, 0.018, -0.001]} rotation={[-Math.PI, 0, 0]} scale={0.003} />
-      <mesh geometry={nodes.Volume.geometry} material={materials.button} position={[0.272, 0.289, -0.001]} rotation={[Math.PI / 2, -Math.PI / 2, 0]} scale={0.003} />
-      <mesh geometry={nodes.PowerButton.geometry} material={materials.button} position={[0.272, 0.187, -0.001]} rotation={[Math.PI / 2, -Math.PI / 2, 0]} scale={0.003} />
-      <mesh geometry={nodes.FrontCam.geometry} material={materials['Glass.001']} position={[-0.065, 0.592, 0.007]} scale={0.003} />
-      <group position={[-0.003, 0.018, -0.001]} rotation={[-Math.PI, 0, 0]} scale={0.003}>
+      {/* Temporary set all uneccessary the scale to zero original scale is scale={0.003} */}
+      <mesh geometry={nodes.RearCam.geometry} material={materials['Glass.001']} position={[-0.003, 0.018, -0.001]} rotation={[-Math.PI, 0, 0]} scale={0.000} />
+      <mesh geometry={nodes.Volume.geometry} material={materials.button} position={[0.272, 0.289, -0.001]} rotation={[Math.PI / 2, -Math.PI / 2, 0]} scale={0.000} />
+      <mesh geometry={nodes.PowerButton.geometry} material={materials.button} position={[0.272, 0.187, -0.001]} rotation={[Math.PI / 2, -Math.PI / 2, 0]} scale={0.000} />
+      <mesh geometry={nodes.FrontCam.geometry} material={materials['Glass.001']} position={[-0.065, 0.592, 0.007]} scale={0.000} />
+      <group position={[-0.003, 0.018, -0.001]} rotation={[-Math.PI, 0, 0]} scale={0.000}>
         <mesh geometry={nodes.Mesh016.geometry} material={materials['Mat.1']} />
         <mesh geometry={nodes.Mesh016_1.geometry} material={materials['Mat.2']} />
         <mesh geometry={nodes.Mesh016_2.geometry} material={materials['Mat.3']} />
       </group>
-      <group position={[-0.003, 0.018, -0.001]} rotation={[-Math.PI, 0, 0]} scale={0.003}>
+      <group position={[-0.003, 0.018, -0.001]} rotation={[-Math.PI, 0, 0]} scale={0.000}>
         <mesh geometry={nodes.Mesh017.geometry}>
           <meshBasicMaterial>
             <Html distanceToCamera={10} position={[0, 0, 0.001]}>
               {/* Render your HTML content for the phone screen here */}
               <div className='contact-form'>
-                <form className='my-form'>
+                <form className='my-form' ref={form} onSubmit={sendEmail}>
+                  <center><div className="cam"></div></center>
                   <fieldset>
-                    <legend>Message me!</legend>
+                    <center><p className='title'>Message Me</p></center>
 
                     <div className="form-group">
-                      <label htmlFor="fullname">Fullname</label>
-                      <input type='text' id="fullname" name='fullname' required placeholder='Enter your name...' />
+                      <input type='text' id="user_name" name='user_name' required placeholder='Fullname' />
                     </div>
 
                     <div className="form-group form-group-b">
-                      <label htmlFor="email">Email</label>
-                      <input type='email' id="email" name="email" required placeholder='Enter your email...' />
+                      <input type='email' id="user_email" name="user_email" required placeholder='Email' />
                     </div>
 
                     <div className="form-group form-group-b">
-                      <label htmlFor="message">Message</label>
-                      <textarea id="message" name="message" required placeholder='Your message...' rows="8" className="textarea"></textarea>
+                      <textarea id="message" name="message" required placeholder='Message' rows="8" className="textarea"></textarea>
                     </div>
 
+                    <div className="success-message">
+                      <p>Thank you for sending me a message!</p>
+                    </div>
+                    <div className="failed-message">
+                      <p>Sorry! message was not sent!</p>
+                    </div>
                     <button className="my-form-button" type='submit'>Send</button>
-                    <div className="result-message">
-                      <p>Thank you you for sending me a message!</p>
-                    </div>
                   </fieldset>
                   <div className="contact-me-navigation">
                         <p><span onClick={scrollToWelcome}>Home </span>| 

@@ -14,11 +14,10 @@ const closeThis = () => {
 function handleSkillHover(skill) {
   const meterFill = document.querySelector('.meter-fill');
   let skillWidth = 0;
-  
-  // Calculate skill width based on skill percentage
+
   switch(skill) {
     case 'html5':
-      skillWidth = 95; // Example: HTML5 skill percentage
+      skillWidth = 95;
       break;
     case 'css':
       skillWidth = 90;
@@ -33,7 +32,7 @@ function handleSkillHover(skill) {
       skillWidth = 60;
       break;
     case 'laravel':
-      skillWidth = 60;
+      skillWidth = 85;
       break;
     case 'react':
       skillWidth = 90;
@@ -110,7 +109,7 @@ const About = () => {
             <div className="p-data-content">
               <h2>You can call me <span>Francis</span></h2>
               <p className='p'>I am a passionate IT professional armed with a BSIT degree. 
-                With a solid foundation in 3D modeling, programming, databases, 
+                With a solid foundation in 3D modeling, frontend and backend development, 
                 networking, and graphics design.
                 I have the knowledge and technical expertise to tackle complex technological challenges. 
                 Driven by a commitment to excellence and a genuine curiosity for innovation.</p>

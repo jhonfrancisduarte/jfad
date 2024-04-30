@@ -5,28 +5,26 @@
     font-family: Sacramento, cursive;
     font-size: 3.5rem;
     color: #ffffff;
+    pointer-events: none;
 }
 
 .title-section .under-box{
     margin-left: 20px;
-    margin-top: -20px;
-    height: 50px;
-    z-index: 12;
+    display: block;
+    width: auto;
 }
 
 .title-section .under-box span{
     color: aliceblue;
-    display: block;
     text-align: center;
     font-family: Source Sans Pro,sans-serif;
     font-size: 1rem;
     letter-spacing: .24rem;
     text-transform: uppercase;
-    margin-top: 10px;
+    pointer-events: none;
 }
 
 .title-section .logo{
-    margin-left: 100px;
     z-index: 9;
 }
 
@@ -77,6 +75,56 @@ body {
     color: #44fce3 !important;
 }
 
+.call-to-action{
+    z-index: 9;
+    position: relative;
+    width: 100px;
+}
+
+.button {
+    padding: 10px 20px;
+    border: 1px solid white;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: white;
+}
+
+.button::before {
+content: '';
+width: 0;
+height: 300%;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) rotate(45deg);
+background: #17C3B2;
+transition: .5s ease;
+display: block;
+z-index: -1;
+}
+
+.button:hover::before {
+    width: 105%;
+}
+
+.button:hover {
+    color: #111;
+    border: 1px solid #17C3B2;
+}
+
+.button:focus{
+    outline: none;
+}
+  
+  
+
 /* --------------------------Pages Setup------------------------------*/
 
 .main-div{
@@ -109,16 +157,28 @@ body {
     justify-content: left;
     align-items: center;
     overflow: hidden;
-    margin-top: -80px;
+}
+
+.header .title-section .block{
+    display: block;
+    margin-left: 100px;
+    width: 50%;
+}
+
+.info{
+    position: relative;
+    z-index: 9;
+    display: flex;
+    align-items: center;
 }
 
 .greetings{
-    position: absolute;
+    position: relative;
     color: white;
     z-index: 9;
-    margin-left: 100px;
-    margin-top: 220px;
     display: block;
+    width: auto;
+    pointer-events: none;
 }
 
 .help{
@@ -246,7 +306,6 @@ body {
         overflow-x: hidden;
     }
 
-
     .header{
         position: absolute; top: 0px;
         justify-content: center;
@@ -266,7 +325,7 @@ body {
     }
 
     .smedia-icons{
-        justify-content: center;
+        justify-content: left;
     }
 
     .title-section .logo{
@@ -282,6 +341,7 @@ body {
         display: block;
         justify-content: center;
         margin: 0;
+        margin-left: 10px;
     }
 
     .title-section .under-box span{
@@ -312,6 +372,15 @@ body {
         margin-bottom: 40px;
     }
 
+    .header .title-section .block{
+        margin-left: 10px;
+        width: 100%;
+    }
+
+    .call-to-action{
+        margin-left: 10px;
+    }
+
 }
 
 
@@ -333,12 +402,16 @@ body {
         z-index: 15;
     }
 
+    .help{
+        display: none;
+    }
+
     .hamburger .line{
-        width: 30px;
-        height: 3px;
+        width: 20px;
+        height: 1px;
         background-color: #ecf0f1;
         display: block;
-        margin: 8px auto;
+        margin: 6px auto;
         -webkit-transition: all 0.3s ease-in-out;
         -o-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
@@ -351,23 +424,23 @@ body {
 
     .hamburger.is-active .line:nth-child(1),
     .hamburger.is-active .line:nth-child(3){
-        width: 30px;
+        width: 20px;
     }
 
     .hamburger.is-active .line:nth-child(1){
-        -webkit-transform: translateX(8px) translateY(5px) rotate(45deg);
-        -ms-transform: translateX(8px) translateY(5px) rotate(45deg);
-        -o-transform: translateX(8px) translateY(5px) rotate(45deg);
-        transform: translateX(8px) translateY(5px) rotate(45deg);
-        width: 20px;
+        -webkit-transform: translateX(5px) translateY(3px) rotate(45deg);
+        -ms-transform: translateX(5px) translateY(3px) rotate(45deg);
+        -o-transform: translateX(5px) translateY(3px) rotate(45deg);
+        transform: translateX(5px) translateY(3px) rotate(45deg);
+        width: 15px;
     }
 
     .hamburger.is-active .line:nth-child(3){
-        -webkit-transform: translateX(8px) translateY(-5px) rotate(-45deg);
-        -ms-transform: translateX(8px) translateY(-5px) rotate(-45deg);
-        -o-transform: translateX(8px) translateY(-5px) rotate(-45deg);
-        transform: translateX(8px) translateY(-5px) rotate(-45deg);
-        width: 20px;
+        -webkit-transform: translateX(5px) translateY(-3px) rotate(-45deg);
+        -ms-transform: translateX(5px) translateY(-3px) rotate(-45deg);
+        -o-transform: translateX(5px) translateY(-3px) rotate(-45deg);
+        transform: translateX(5px) translateY(-3px) rotate(-45deg);
+        width: 15px;
     }
 
     .hamburger.is-active + .burger-menu{

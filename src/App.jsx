@@ -45,6 +45,8 @@ function App() {
   const positionAboutModel = isDesktop ? [0, 0.9, 0] : [0, 0, 0]; 
   const rotationAboutModel = isDesktop ? [0, Math.PI / 4, 0] : [0, 0, 0];
   
+  const positionContactModel = isDesktop ? [0.5,0,0] : [0, 0, 0]; 
+
   const assignIdToCanvas = () => {
     const canvasElement = document.querySelector(`.${canvasClassName}`);
     if (canvasElement) {
@@ -156,7 +158,7 @@ function App() {
                                   castShadow shadow-mapSize={{ width: 1024, height: 1024 }}
                                   shadow-bias={-0.001}/>
                 <Suspense fallback={null}>
-                  <Model4 />
+                  <Model4 position={positionContactModel}/>
                 </Suspense>
                 <CustomOrbitControls />
             </Canvas>

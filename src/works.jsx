@@ -1,126 +1,122 @@
-import React, { useEffect , useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
+import '../public/css/works.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const Works = () => {
 
-    const scrollToWelcome = () => {
-        const welcomeSection = document.getElementById('welcome');
-        const targetClass1 = document.querySelector('.my-canvas');
-        const targetClass2 = document.querySelector('.homePage');
-        const thisSectionClass1 = document.querySelector('.myWorksPage');
-        if (welcomeSection) {
-            thisSectionClass1.classList.remove('active');
-            targetClass1.classList.add('active');
-            targetClass2.classList.add('active');
-            welcomeSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-    
-    const scrollToContactMe = () => {
-        const contactSection = document.getElementById('contact-me');
-        const targetClass1 = document.querySelector('.my-canvas3');
-        const targetClass2 = document.querySelector('.contactMePage');
-        const thisSectionClass1 = document.querySelector('.myWorksPage');
-        if (contactSection) {
-            thisSectionClass1.classList.remove('active');
-            targetClass1.classList.add('active');
-            targetClass2.classList.add('active');
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-    
-    const scrollToAboutMe = () => {
-        const aboutSection = document.getElementById('aboutme');
-        const targetClass1 = document.querySelector('.my-canvas2');
-        const targetClass2 = document.querySelector('.aboutMePage');
-        const thisSectionClass1 = document.querySelector('.myWorksPage');
-        if (aboutSection) {
-            thisSectionClass1.classList.remove('active');
-            targetClass1.classList.add('active');
-            targetClass2.classList.add('active');
-            aboutSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
-
-    const containerRef = useRef(null);
-    const COL_COUNT = 4; // Set this to however many columns you want
-    const blockHeights = new Array(COL_COUNT).fill(0);
+    const title = useRef(null);
+    const statement = useRef(null);
 
     useEffect(() => {
-        const container = containerRef.current;
+      const el1 = title.current;
+      const el2 = statement.current;
+      gsap.fromTo(el1, {y: 100, opacity: 0}, {
+        scrollTrigger: 
+          el1, y: 0, opacity: 1, duration: 1
+      })
 
-        if (container) {
-            const blocks = container.children;
-            for (let i = 0; i < blocks.length; i++) {
-                const order = (i + 1) % COL_COUNT || COL_COUNT;
-                blocks[i].style.order = order;
-                blockHeights[order - 1] += parseFloat(blocks[i].style.height);
-            }
-            const highest = Math.max(...blockHeights);
-            container.style.height = `${highest}px`;
-        }
+      gsap.fromTo(el2, {opacity: 0}, {
+        scrollTrigger: 
+          el2, opacity: 1, duration: 0.3, delay: 0.5
+      })
+
     }, []);
+
+    const boxRefs = useRef([]).current;
+    useEffect(() => {
+        const boxElements = gsap.utils.toArray('.work');
+        boxElements.forEach((box, index) => {
+            boxRefs[index] = box;
+
+            gsap.fromTo(
+                box, { x: 200, opacity: 0, },
+                {
+                    x: 0,
+                    opacity: 1,
+                    duration: 1,
+                    delay: index * 0.3,
+                    scrollTrigger: {
+                        trigger: box,
+                        start: 'top 80%',
+                    },
+                }
+            );
+        });
+    }, []);
+  
 
     return(
         <div className="works" id='my-works-content'>
             <div className="works-content">
-                <div className="content-scroll">
-                    <div className="my-works-navigation">
-                        <p><span onClick={scrollToWelcome}>Home </span>| 
-                            <span onClick={scrollToAboutMe}> About Me </span>| 
-                            <span onClick={scrollToContactMe}> Contact Me</span>
+                <img className="network" src="/images/network.png"  />
+                <div className="header">
+                    <div className="head">
+                        <p className='sub-header'>PROJECTS</p>
+                        <h1 className="works-header" ref={title}>My Works</h1>
+                        <p className='statement' ref={statement}>The following projects provide actual samples <br />
+                            of my work that highlight my abilities and experience. <br /> It displays my aptitude <br />
+                            for exploring and developing skills, utilising a variety of technologies, <br />
+                            and successfully producing a creative projects.
+                        </p>
+
+                        <p className='statement2'>The following projects provide actual samples 
+                            of my work that highlight my abilities and experience. It displays my aptitude 
+                            for exploring and developing skills, utilising a variety of technologies, 
+                            and successfully producing a creative projects.
                         </p>
                     </div>
-                    <h1 className="my-works-title">My Works</h1>
-                    <div className="works-line"></div>
-
-                    <div ref={containerRef} id="block-contain">
-                        <div className="block" style={{ height: '200px' }}>
-                            <div className="inner">
-                                <div className='project project1'>
-                                    <img src="public/images/wildwildwest.png"/>
-                                    <div className="project-link">
-                                        <p className='project-name'><a href='https://jhonfrancisduarte.itch.io/wildwildwest' target='_blank'>Wild Wild West</a></p>
-                                    </div>
-                                </div>
+                </div>
+                <div className="works-body">
+                    <div className="scroll-x">
+                        <div className="work work1" ref={(el) => (boxRefs[0] = el)}>
+                            <div className="featured-img">
+                                <a href="https://jhonfrancisduarte.itch.io/wildwildwest" target='_blank'>
+                                    <img src="/images/wildwildwest.png" alt="wildwildwest"/>
+                                </a>
+                            </div>
+                            <div className="description">
+                                <h3>Wild Wild West</h3>
+                                <p className='work-desc'>A third-person shooter game created with Unity Engine. It has two play mode: a player vs ai and player vs player.</p>
+                            </div>
+                            <div className="platforms">
+                                <img src="/images/Unity-logo.png" alt="unity logo" />
+                                <img src="/images/webgl.png" alt="webgl logo" className='webgl'/>
                             </div>
                         </div>
-                        <div className="block" style={{ height: '230px' }}>
-                            <div className="inner">2</div>
+                        <div className="work work2" ref={(el) => (boxRefs[1] = el)}>
+                            <div className="featured-img">
+                                <a href="https://jhonfrancisduarte.github.io/jfad-motorcycle/" target='_blank'>
+                                    <img src="/images/motor.png" alt="motorcycle"/>
+                                </a>
+                            </div>
+                            <div className="description">
+                                <h3>Motorcycle</h3>
+                                <p className='work-desc'>A model of my first motorcycle. It was modeled using Blender.</p>
+                            </div>
+                            <div className="platforms">
+                                <img className='blender' src="/images/blender.png" alt="blender logo" />
+                            </div>
                         </div>
-                        <div className="block" style={{ height: '150px' }}>
-                            <div className="inner">3</div>
-                        </div>
-                        <div className="block" style={{ height: '280px' }}>
-                            <div className="inner">4</div>
-                        </div>
-                        <div className="block" style={{ height: '220px' }}>
-                            <div className="inner">5</div>
-                        </div>
-                        <div className="block" style={{ height: '180px' }}>
-                            <div className="inner">6</div>
-                        </div>
-                        <div className="block" style={{ height: '210px' }}>
-                            <div className="inner">7</div>
-                        </div>
-                        <div className="block" style={{ height: '270px' }}>
-                            <div className="inner">8</div>
-                        </div>
-                        <div className="block" style={{ height: '160px' }}>
-                            <div className="inner">9</div>
-                        </div>
-                        <div className="block" style={{ height: '220px' }}>
-                            <div className="inner">10</div>
-                        </div>
-                        <div className="block" style={{ height: '190px' }}>
-                            <div className="inner">11</div>
-                        </div>
-                        <div className="block" style={{ height: '270px' }}>
-                            <div className="inner">12</div>
+                        <div className="work work3" ref={(el) => (boxRefs[2] = el)}>
+                            <div className="featured-img">
+                                <a href="https://jhonfrancisduarte.github.io/jfad-ava-assemble-disassemble/" target='_blank'>
+                                    <img src="/images/Ava.png" alt="motorcycle"/>
+                                </a>
+                            </div>
+                            <div className="description">
+                                <h3>Ava | <span className='desc-span'>Assemble • Disassemble</span></h3>
+                                <p className='work-desc'>A comprehensive, step-by-step simulation 
+                                to correctly assemble or disassemble a desktop computer made with Unity and Blender.</p>
+                            </div>
+                            <div className="platforms">
+                                <img src="/images/Unity-logo.png" alt="unity logo" />
+                                <img src="/images/webgl.png" alt="webgl logo" className='webgl'/>
+                                <img className='blender' src="/images/blender.png" alt="blender logo" />
+                            </div>
                         </div>
                     </div>
-
-                    <h4 className="my-works-title2">More projects will be added soon</h4>
                 </div>
             </div>
         </div>

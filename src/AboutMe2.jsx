@@ -28,6 +28,39 @@ export default function Model3(props) {
       intersectedObject.material.emissive.set(0x000000);
     }
   };
+  
+
+  useEffect(() => {
+    const handlePointerOverOut = () => {
+      const pData = document.querySelector('.personal-data.active');
+      const sData = document.querySelector('.skill-balls.active');
+      const personalDataGroup = group.current.getObjectByName('PersonalData');
+      const skillsGroup = group.current.getObjectByName('Skills');
+
+      if (personalDataGroup && personalDataGroup.material && personalDataGroup.material.emissive) {
+        if (pData) {
+          personalDataGroup.material.emissive.set(0x009292);
+        } else {
+          personalDataGroup.material.emissive.set(0x000000);
+        }
+      }
+
+      if (skillsGroup && skillsGroup.material && skillsGroup.material.emissive) {
+        if (sData) {
+          skillsGroup.material.emissive.set(0x009292);
+        } else {
+          skillsGroup.material.emissive.set(0x000000);
+        }
+      }
+    };
+
+    handlePointerOverOut();
+    document.addEventListener('click', handlePointerOverOut);
+    return () => {
+      document.removeEventListener('click', handlePointerOverOut);
+    };
+  }, [group]);
+
 
   const thisSectionClass1 = document.querySelector('.my-canvas2');
   const thisSectionClass2 = document.querySelector('.aboutMePage');
@@ -35,28 +68,24 @@ export default function Model3(props) {
   const aboutMenuClick = (menu) => {
     const personalData = document.getElementById('personal-data');
     const skills = document.getElementById('my-skills');
-    const experience = document.getElementById('my-experience');
   
     switch (menu) {
       case 'PersonalData':
-        if (personalData && skills && experience) {
+        if (personalData && skills) {
           personalData.classList.add('active');
           skills.classList.remove('active');
-          experience.classList.remove('active');
         }
         break;
       case 'Skills':
-        if (personalData && skills && experience) {
+        if (personalData && skills) {
           personalData.classList.remove('active');
           skills.classList.add('active');
-          experience.classList.remove('active');
         }
         break;
       case 'Experience':
-        if (personalData && skills && experience) {
-          personalData.classList.remove('active');
-          skills.classList.remove('active');
-          experience.classList.add('active');
+        const experience = document.getElementById('experience');
+        if (experience) {
+            experience.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
         break;
       case 'Home':
@@ -64,9 +93,9 @@ export default function Model3(props) {
         const targetClass2 = document.querySelector('.homePage');
         const targetElement = document.getElementById('welcome');
         if (targetElement) {
-          skills.classList.remove('active');
-          personalData.classList.remove('active');
-          experience.classList.remove('active');
+          // skills.classList.remove('active');
+          // personalData.classList.remove('active');
+          // experience.classList.remove('active');
           thisSectionClass1.classList.remove('active');
           thisSectionClass2.classList.remove('active');
           targetClass1.classList.add('active');
@@ -78,9 +107,9 @@ export default function Model3(props) {
         const targetClass3 = document.querySelector('.myWorksPage');
         const targetElement2 = document.getElementById('my-works');
         if (targetElement2) {
-          skills.classList.remove('active');
-          personalData.classList.remove('active');
-          experience.classList.remove('active');
+          // skills.classList.remove('active');
+          // personalData.classList.remove('active');
+          // experience.classList.remove('active');
           thisSectionClass1.classList.remove('active');
           thisSectionClass2.classList.remove('active');
           targetClass3.classList.add('active');
@@ -92,9 +121,6 @@ export default function Model3(props) {
         const targetClass6 = document.querySelector('.contactMePage');
         const targetElement3 = document.getElementById('contact-me');
         if (targetElement3) {
-          skills.classList.remove('active');
-          personalData.classList.remove('active');
-          experience.classList.remove('active');
           thisSectionClass1.classList.remove('active');
           thisSectionClass2.classList.remove('active');
           targetClass5.classList.add('active');
@@ -218,21 +244,21 @@ export default function Model3(props) {
           <mesh name="Text007" geometry={nodes.Text007.geometry} material={materials['light.003']} />
           <mesh name="Text007_1" geometry={nodes.Text007_1.geometry} material={materials['screen.003']} />
         </group>
-        <group name="MyWorks" position={[0.761, -0.223, -2.131]} rotation={[Math.PI / 2, 0, 0.308]} scale={0.156}
+        <group name="MyWorks" position={[0.761, -0.223, -2.131]} rotation={[Math.PI / 2, 0, 0.308]} scale={0}
                                             onPointerDown={() => aboutMenuClick('MyWorks')} 
                                             onPointerOver={aboutPointerOver}
                                             onPointerOut={aboutPointerOut}>
           <mesh name="Text014" geometry={nodes.Text014.geometry} material={materials['light.005']} />
           <mesh name="Text014_1" geometry={nodes.Text014_1.geometry} material={materials['screen.005']} />
         </group>
-        <group name="ContactMe" position={[0.971, -0.395, -2.054]} rotation={[Math.PI / 2, 0, 0.468]} scale={0.156}
+        <group name="ContactMe" position={[0.971, -0.395, -2.054]} rotation={[Math.PI / 2, 0, 0.468]} scale={0}
                                             onPointerDown={() => aboutMenuClick('ContactMe')} 
                                             onPointerOver={aboutPointerOver}
                                             onPointerOut={aboutPointerOut}>
           <mesh name="Text015" geometry={nodes.Text015.geometry} material={materials['light.006']} />
           <mesh name="Text015_1" geometry={nodes.Text015_1.geometry} material={materials['screen.006']} />
         </group>
-        <group name="Home" position={[0.73, -0.047, -2.145]} rotation={[Math.PI / 2, 0, 0.34]} scale={0.133}
+        <group name="Home" position={[0.73, -0.047, -2.145]} rotation={[Math.PI / 2, 0, 0.34]} scale={0}
                                             onPointerDown={() => aboutMenuClick('Home')} 
                                             onPointerOver={aboutPointerOver}
                                             onPointerOut={aboutPointerOut}>
@@ -240,9 +266,9 @@ export default function Model3(props) {
           <mesh name="Text016_1" geometry={nodes.Text016_1.geometry} material={materials['screen.004']} />
         </group>
         <mesh name="AboutScreen" geometry={nodes.AboutScreen.geometry} material={materials.screen} position={[0.1, -1.205, -0.015]} rotation={[Math.PI, 0, 0]} scale={[-2.191, -0.268, -2.191]} />
-        <mesh name="AboutScreen002" geometry={nodes.AboutScreen002.geometry} material={materials.screen} position={[0.1, -1.205, -0.015]} rotation={[Math.PI, 0, 0]} scale={[-2.191, -0.268, -2.191]} />
+        <mesh name="AboutScreen002" geometry={nodes.AboutScreen002.geometry} material={materials.screen} position={[0.1, -1.205, -0.015]} rotation={[Math.PI, 0, 0]} scale={[0, 0, 0]} />
         <mesh name="AboutScreen001" geometry={nodes.AboutScreen001.geometry} material={materials['white.001']} position={[0.1, -1.205, -0.015]} rotation={[Math.PI, 0, 0]} scale={[-2.191, -0.268, -2.191]} />
-        <mesh name="AboutScreen003" geometry={nodes.AboutScreen003.geometry} material={materials['white.001']} position={[0.1, -1.205, -0.015]} rotation={[Math.PI, 0, 0]} scale={[-2.191, -0.268, -2.191]} />
+        <mesh name="AboutScreen003" geometry={nodes.AboutScreen003.geometry} material={materials['white.001']} position={[0.1, -1.205, -0.015]} rotation={[Math.PI, 0, 0]} scale={[0, 0, 0]} />
       </group>
     </group>
   )

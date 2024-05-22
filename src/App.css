@@ -1,122 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    font-family: 'Exo 2', sans-serif !important;
+}
+
 #root {
   width: 100%;
+  height: 100vh;
+}
+
+.content-wrapper{
+  width: 100%;
   height: 100%;
-  place-items: center;
-  justify-content: center;
-  align-items: center;
 }
 
 .pages-container{
-  height: 100vh;
-  width: 100vw !important;
-  display: flex;
-  overflow: hidden;
-}
-
-/* -----------------Main Pagination------------------- */
-
-.homePage,
-.aboutMePage,
-.myWorksPage,
-.contactMePage{
-  position: relative;
-  width: 0vw;
-  height: 100vh;
-  transition: 0.5s ease-in-out;
-}
-
-.homePage.active,
-.aboutMePage.active,
-.myWorksPage.active,
-.contactMePage.active{
-  width: 100vw;
-}
-
-.my-canvas,
-.my-canvas2,
-.my-canvas3{
-  width: 0 !important;
-  height: 100% !important; 
-  position: absolute !important; 
-  top: 0; 
-  left: 0; 
-  z-index: 1;
-  cursor: grab;
-  transition: 0.5s ease-in-out;
-}
-
-.my-canvas.active, 
-.my-canvas2.active,
-.my-canvas3.active{
-  width: 100% !important;
-}
-
-/* ------------------------End of Main Pagination---------------------- */
-
-
-
-.about,
-.works,
-.contact{
-  position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  display: flex;
-  transition: 0.5s ease-in-out;
+  display: block;
 }
 
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #b4b4b4;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #3F4648;
+}
+
+
 .mobile-bg{
-  display: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: rgba(35,42,44,1);
+  position: fixed;
+  top: 0; left: 0;
 }
 
 .copyright{
-  position: absolute;
+  position: fixed;
   bottom: 1px;
   right: 20px;
   opacity: .2;
+  z-index: 999;
 }
 
-#my-works-content,
-#contactme{
-  justify-content: center;
+.copyright p{
+  font-size: 11px;
 }
 
-.main-nav-links{
-  font-size: 13px;
-}
-
-.trails-container{
-  position: absolute; top: 0;
+.loading {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  z-index: 9999;
+}
+
+.loading-container{
+  margin-right: -350px;
+}
+
+.loading-bar-container {
+  width: 100px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #333;
+  margin-top: -10px;
+}
+
+.loading-bar {
+  height: 100%;
+  border-radius: 2px;
+  background-color: #8ed1fc;
+}
+
+.loading.gone{
+  display: none;
 }
 
 /* ------------------------Mobile and Tablet View---------------------- */
 
 @media (max-width: 1024px){
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+
   .pages-container{
     display: block;
-    overflow: hidden;
-  }
-
-  .my-canvas,
-  .my-canvas2,
-  .my-canvas3{
-    width: 100% !important;
-  }
-
-  .homePage,
-  .aboutMePage,
-  .myWorksPage,
-  .contactMePage{
-    width: 100vw;
-    overflow: hidden !important;
+    overflow-x: hidden;
   }
 
   .copyright{
-    display: none;
+    position: relative;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .copyright p{
+    margin-bottom: 0;
+    padding: 0;
+    text-align: center;
   }
   
   .mobile-bg{
@@ -128,4 +125,9 @@
     position: fixed;
     top: 0; left: 0;
   }
+
+  .loading-container{
+    margin-right: 0;
+  }
+
 }

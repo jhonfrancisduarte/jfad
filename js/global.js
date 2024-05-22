@@ -11,6 +11,10 @@ jQuery(document).ready(function(){
       jQuery(".hamburger").removeClass("is-active"); // Remove "is-active" from the hamburger
     });
 
+    jQuery(".navitem").click(function(){
+      jQuery(".hamburger").removeClass("is-active"); // Remove "is-active" from the hamburger
+    });
+
     jQuery(".help-button").click(function(){
       jQuery(".instruction").addClass("active");
     });

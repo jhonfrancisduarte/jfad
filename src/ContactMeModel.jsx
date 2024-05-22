@@ -116,12 +116,12 @@ export default function Model4(props) {
                     </div>
                     <button className="my-form-button" type='submit'>Send</button>
                   </fieldset>
-                  <div className="contact-me-navigation">
+                  {/* <div className="contact-me-navigation">
                         <p><span onClick={scrollToWelcome}>Home </span>| 
                             <span onClick={scrollToAboutMe}> About Me </span>| 
                             <span onClick={scrollToMyWorks}> My Works</span>
                         </p>
-                  </div>
+                  </div> */}
                 </form>
               </div>
             </Html>

@@ -319,25 +319,25 @@ z-index: -1;
   }
   
   .idle {
-    background: url('/images/idle.png');
+    background: url('images/idle.png');
     width: 200px;
     animation: playIdle 1.2s steps(4) infinite;
   }
   
   .run {
-    background: url('/images/run.png');
+    background: url('images/run.png');
     width: 300px;
     animation: playRun 0.8s steps(6) infinite;
   }
   
   .jump {
-    background: url('/images/jump.png');
+    background: url('images/jump.png');
     width: 150px;
     animation: playJump 0.6s steps(3) normal;
   }
   
   .duck {
-    background: url('/images/duck.png');
+    background: url('images/duck.png');
     width: 100px;
     animation: playDuck 1s steps(2) infinite;
   }

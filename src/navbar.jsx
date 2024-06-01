@@ -260,7 +260,7 @@ const Navbar = () => {
                         <div className={`sprite-container ${direction}`}
                         style={{ left: `${position}px`, 
                                  display: `${spriteDisplay}`,
-                                 bottom: `${108 + verticalPosition}px` 
+                                 bottom: `${97 + verticalPosition}px` 
                             }}
                         >
                             <div className={`sprite ${animation}`}></div>

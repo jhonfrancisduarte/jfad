@@ -186,10 +186,16 @@ const About = () => {
   const pData = useRef(null);
   useEffect(() => {
     const el1 = pData.current;
-    gsap.fromTo(el1, {x: -300, opacity: 0}, {
-      scrollTrigger: 
-        el1, x: 0, opacity: 1, duration: 1
-    })
+
+    // Media query check
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+
+    if (isDesktop) {
+      gsap.fromTo(el1, {x: -300, opacity: 0}, {
+        scrollTrigger: 
+          el1, x: 0, opacity: 1, duration: 1
+      })
+    }
   }, []);
   
 

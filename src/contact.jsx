@@ -11,26 +11,35 @@ const Contact = () => {
       const el1 = title.current;
       const el2 = statement.current;
 
-      gsap.fromTo(el1, {x: 200, opacity: 0}, {
-        scrollTrigger: 
-          el1, x: 0, opacity: 1, duration: 1
-      })
+      // Media query check
+      const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
 
-      gsap.fromTo(el2, {x: 200, opacity: 0}, {
-        scrollTrigger: 
-          el2, x: 0, opacity: 1, duration: 1, delay: 0.5
-      })
+      if (isDesktop) {
+          gsap.fromTo(el1, {x: 200, opacity: 0}, {
+            scrollTrigger: 
+              el1, x: 0, opacity: 1, duration: 1
+          })
 
-
+          gsap.fromTo(el2, {x: 200, opacity: 0}, {
+            scrollTrigger: 
+              el2, x: 0, opacity: 1, duration: 1, delay: 0.5
+          })
+      }
     }, []);
 
     return (
+
         <div className="contact" id='contactme'>
             <div className="contact-greeting-container">
                 <h1 ref={title}>Contact Me</h1>
                 <h3 className="contact-greeting" ref={statement}>I'm more than happy to hear from you!</h3>
             </div>
+
+            <div className="footer">
+                <img src="images/svg2.png" alt="" />
+            </div>
         </div>
+
     );
 }
 

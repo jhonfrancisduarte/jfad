@@ -10,10 +10,17 @@ const Experience = () => {
   const title = useRef(null);
   useEffect(() => {
     const el1 = title.current;
-    gsap.fromTo(el1, {y: 100, opacity: 0}, {
-      scrollTrigger: 
-        el1, y: 0, opacity: 1, duration: 1
-    })
+
+    // Media query check
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+
+    if (isDesktop) {
+      gsap.fromTo(el1, {y: 100, opacity: 0}, {
+        scrollTrigger: 
+          el1, y: 0, opacity: 1, duration: 1
+      })
+    }
+
   }, []);
 
   return (

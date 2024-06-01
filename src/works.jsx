@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import '../public/css/works.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
@@ -12,40 +11,22 @@ const Works = () => {
     useEffect(() => {
       const el1 = title.current;
       const el2 = statement.current;
-      gsap.fromTo(el1, {y: 100, opacity: 0}, {
-        scrollTrigger: 
-          el1, y: 0, opacity: 1, duration: 1
-      })
 
-      gsap.fromTo(el2, {opacity: 0}, {
-        scrollTrigger: 
-          el2, opacity: 1, duration: 0.3, delay: 0.5
-      })
+      // Media query check
+        const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
 
+        if (isDesktop) {
+        gsap.fromTo(el1, {y: 100, opacity: 0}, {
+            scrollTrigger: 
+            el1, y: 0, opacity: 1, duration: 1
+        })
+
+        gsap.fromTo(el2, {opacity: 0}, {
+            scrollTrigger: 
+            el2, opacity: 1, duration: 0.3, delay: 0.5
+        })
+        }
     }, []);
-
-    const boxRefs = useRef([]).current;
-    useEffect(() => {
-        const boxElements = gsap.utils.toArray('.work');
-        boxElements.forEach((box, index) => {
-            boxRefs[index] = box;
-
-            gsap.fromTo(
-                box, { x: 200, opacity: 0, },
-                {
-                    x: 0,
-                    opacity: 1,
-                    duration: 1,
-                    delay: index * 0.3,
-                    scrollTrigger: {
-                        trigger: box,
-                        start: 'top 80%',
-                    },
-                }
-            );
-        });
-    }, []);
-  
 
     return(
         <div className="works" id='my-works-content'>
@@ -68,9 +49,10 @@ const Works = () => {
                         </p>
                     </div>
                 </div>
+
                 <div className="works-body">
                     <div className="scroll-x">
-                        <div className="work work1" ref={(el) => (boxRefs[0] = el)}>
+                        <div className="work work1">
                             <div className="featured-img">
                                 <a href="https://jhonfrancisduarte.itch.io/wildwildwest" target='_blank'>
                                     <img src="/images/wildwildwest.png" alt="wildwildwest"/>
@@ -85,7 +67,7 @@ const Works = () => {
                                 <img src="/images/webgl.png" alt="webgl logo" className='webgl'/>
                             </div>
                         </div>
-                        <div className="work work2" ref={(el) => (boxRefs[1] = el)}>
+                        <div className="work work2">
                             <div className="featured-img">
                                 <a href="https://jhonfrancisduarte.github.io/jfad-motorcycle/" target='_blank'>
                                     <img src="/images/motor.png" alt="motorcycle"/>
@@ -99,10 +81,10 @@ const Works = () => {
                                 <img className='blender' src="/images/blender.png" alt="blender logo" />
                             </div>
                         </div>
-                        <div className="work work3" ref={(el) => (boxRefs[2] = el)}>
+                        <div className="work work3">
                             <div className="featured-img">
                                 <a href="https://jhonfrancisduarte.github.io/jfad-ava-assemble-disassemble/" target='_blank'>
-                                    <img src="/images/Ava.png" alt="motorcycle"/>
+                                    <img src="/images/Ava.png" alt="ava"/>
                                 </a>
                             </div>
                             <div className="description">
@@ -116,8 +98,25 @@ const Works = () => {
                                 <img className='blender' src="/images/blender.png" alt="blender logo" />
                             </div>
                         </div>
+                        <div className="work work4">
+                            <div className="featured-img">
+                                <a href="https://jhonfrancisduarte.github.io/UnderwaterFantacy/" target='_blank'>
+                                    <img src="/images/under.png" alt="underwater"/>
+                                </a>
+                            </div>
+                            <div className="description">
+                                <h3>Underwater Fantacy</h3>
+                                <p className='work-desc'>Underwater Fantacy is a 2D underwater adventure game. 
+                                It is a shooting game created as a school project.</p>
+                            </div>
+                            <div className="platforms">
+                                <img src="/images/Unity-logo.png" alt="unity logo" />
+                                <img src="/images/webgl.png" alt="webgl logo" className='webgl'/>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     );

@@ -232,9 +232,6 @@ function App() {
                   </Suspense>
                   <CustomOrbitControls />
               </Canvas>
-              <div className="footer">
-                  <img src="images/svg2.png" alt="" />
-              </div>
             </div>
 
             <div className="copyright">

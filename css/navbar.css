@@ -1,0 +1,827 @@
+.homePage{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s ease-in-out;
+}
+
+.my-canvas{
+  width: 100%;
+  height: 100%; 
+  position: absolute !important; 
+  top: 0; 
+  left: 0; 
+  z-index: 10;
+  margin-left: 200px;
+  cursor: grab;
+}
+
+.home-greetings{
+    font-family: "Exo 2", sans-serif;
+    font-size: 3.5rem;
+    color: #ffffff;
+    padding-bottom: 10px;
+    pointer-events: none;
+}
+
+.title-section .logo{
+    z-index: 9;
+}
+
+
+.smedia-icons{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.smedia-icons .f,
+.smedia-icons .m,
+.smedia-icons .l{
+    float: left;
+    margin-right: 10px;
+    z-index: 12;
+}
+
+.smedia-icons .y{
+    z-index: 9;
+}
+
+.smedia-icons a{
+   color: aliceblue;
+   font-weight: 300;
+}
+
+.smedia-icons .f:hover{
+    color: #009292;
+ }
+
+.smedia-icons .m:hover{
+    color: #009292;
+ }
+
+ .smedia-icons .l:hover{
+    color: #009292;
+ }
+
+ .smedia-icons .y:hover{
+    color: #009292;
+ }
+
+body {
+    overflow-x: hidden;
+}
+
+#active a{
+    color: #44fce3 !important;
+}
+
+.call-to-action{
+    z-index: 9;
+    position: relative;
+    width: 100px;
+}
+
+.button {
+    padding: 10px 20px;
+    border: 1px solid white;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    border-radius: 30px;
+    color: white;
+}
+
+.button::before {
+content: '';
+width: 0;
+height: 300%;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) rotate(45deg);
+background: #8ed1fb;
+transition: .3s ease;
+display: block;
+z-index: -1;
+}
+
+.button:hover::before {
+    width: 105%;
+}
+
+.button:hover {
+    color: #111;
+    border: 1px solid #8ed1fb;
+}
+
+.button:focus{
+    outline: none;
+}  
+
+/* --------------------------Pages Setup------------------------------*/
+
+.main-div{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow-x: visible;
+    transition: 0.5s ease-in-out;
+}
+
+.homePage .header{
+    position: relative;
+    display: block;
+    width: 50%;
+    height: 100%;
+    height: inherit;
+    justify-content: left;
+    overflow-x: visible;
+    align-items: center;
+    z-index: 11;
+}
+
+.scroll-detector{
+    position: absolute;
+    top: 0; left: 0;
+    height: 80px;
+    width: 100vw;
+    z-index: 10;
+}
+
+.top-nav-bar{
+    position: fixed;
+    top: 0; left: 0;
+    height: 70px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding-left: 70px;
+    padding-right: 70px;
+    transition: all 0.3s ease-in-out;
+    z-index: 9999;
+}
+
+.top-nav-bar.visible {
+    background: #232A2C;
+    z-index: 9999;
+}
+
+.top-nav-bar .logo{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.top-nav-bar .logo p,
+.top-nav-bar .logo span{
+    cursor: pointer;
+}
+
+.top-nav-bar span{
+    font-size: 18px;
+    margin-left: 15px;
+    margin-bottom: 6px;
+}
+
+.nav-items{
+    position: absolute;
+    display: flex;
+    right: 220px;
+    z-index: 13;
+}
+
+.nav-items .nav-p p{
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.nav-items .nav-p p:hover{
+    color: white;
+}
+
+.nav-p{
+    position: relative;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.nav-p p{
+    text-align: center;
+}
+
+.nav-items .nav-p p.active{
+    color: #009292;
+}
+
+.nav-items .nav-p p::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transform: scale(0);
+    transition: all 0.3s;
+}
+
+.nav-items .nav-p p:hover::after {
+    transform: scale(1);
+}
+/* Back objects -------------------------------------------------- */
+
+.back-objects-container{
+    position: absolute; 
+    top: 0; left: 0;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    overflow-x: hidden;
+    transition: all 0.3s ease-in;
+}
+
+.back-objects-container img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 400px;
+    z-index: 1;
+}
+
+
+.back-objects-container .objects{
+    position: absolute; 
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.back-objects-container .block2{
+    position: absolute;
+    display: block;
+    left:  220px; bottom: 90px;
+    width: 100%;
+    opacity: 1;
+    z-index: 1;
+}
+
+.back-objects-container .block2 .greetings{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.back-objects-container .block2 .greetings .home-greetings{
+    position: relative;
+}
+
+.back-objects-container .block2 .hi{
+    position: absolute;
+}
+
+.back-objects-container .block2 h5{
+    opacity: 0;
+}
+
+.back-objects-container .block2 .my-name{
+    position: absolute;
+    left: 90px;
+}
+
+/* Character Animation------------------------------------------- */
+
+
+.sprite-container {
+    width: 50px;
+    height: 60px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 72px;
+    transition: left 0.1s linear, bottom 0.1s linear;
+  }
+  
+  .sprite {
+    width: 50px;
+    height: 60px;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0px 0px 2px #68b5ca46);
+  }
+  
+  .idle {
+    background: url('/images/idle.png');
+    width: 200px;
+    animation: playIdle 1.2s steps(4) infinite;
+  }
+  
+  .run {
+    background: url('/images/run.png');
+    width: 300px;
+    animation: playRun 0.8s steps(6) infinite;
+  }
+  
+  .jump {
+    background: url('/images/jump.png');
+    width: 150px;
+    animation: playJump 0.6s steps(3) normal;
+  }
+  
+  .duck {
+    background: url('/images/duck.png');
+    width: 100px;
+    animation: playDuck 1s steps(2) infinite;
+  }
+  
+  .right .sprite {
+    transform: scaleX(1);
+  }
+  
+  .left .sprite {
+    transform: scaleX(-1);
+  }
+  
+  @keyframes playIdle {
+    from {
+      background-position: 0;
+    }
+    to {
+      background-position: -200px;
+    }
+  }
+  
+  @keyframes playRun {
+    from {
+      background-position: 0;
+    }
+    to {
+      background-position: -300px;
+    }
+  }
+  
+  @keyframes playJump {
+    from {
+      background-position: -150px;
+    }
+    to {
+      background-position: 0;
+    }
+  }
+  
+  @keyframes playDuck {
+    from {
+      background-position: 0;
+    }
+    to {
+      background-position: -100px;
+    }
+  }
+
+
+.character-hover{
+    position: absolute;
+    width: 50px;
+    height: 60px;
+    z-index: 9;
+}
+
+.pop-message.show{
+    transform: scale(1) !important;
+}
+  
+.back-objects-container .pop-message{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    padding: 5px;
+    height: 50px;
+    background: linear-gradient(9deg, rgba(255,255,255,1) 0%, rgba(238,242,244,1) 50%, rgba(230,234,236,1) 100%);
+    border-radius: 40px 40px 0 40px;
+    transition: all 0.2s ease-in-out;
+    transform-origin: right bottom;
+    transform: scale(0);
+}
+
+.back-objects-container .pop-message img{
+    width: 100%;
+    height: 100%;
+}
+
+/* Game objects ------------------------------------------------- */
+
+.coin {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    border-radius: 50%;
+    position: absolute;
+}
+  
+
+/* -------------------------------------------------------------- */
+
+.homePage .header .title-section{
+    position: absolute;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: left;
+    align-items: center;
+    overflow: hidden;
+    margin-left: 120px;
+    z-index: 2;
+}
+
+.homePage .header .title-section .block{
+    display: block;
+    margin-left: 100px;
+    width: 100%;
+}
+
+.info{
+    position: relative;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.homePage .header .title-section .block .greetings{
+    position: relative;
+    color: white;
+    z-index: 9;
+    display: block;
+    width: auto;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.homePage .header .title-section .block .greetings .home-greetings{
+    opacity: 0;
+}
+
+.help{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.help-button{
+    width: 25px;
+    filter: invert();
+    margin-top: 10px;
+    margin-right: 10px;
+    opacity: 0.3;
+}
+
+.help-button:hover{
+    opacity: 1;
+}
+
+.instruction{
+    position: absolute; top: 10px; right: -300px;
+    border-radius: 5px;
+    width: 210px;
+    padding: 10px;
+    height: 70px;
+    background: black;
+    display: block;
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.instruction.active{
+    position: absolute; top: 10px; right: 10px;
+}
+
+.instruction-close{
+    position: absolute;
+    top: -15px; right: 5px;
+    font-size: 18px !important;
+    cursor: pointer;
+}
+
+.instruction-close:hover{
+    color: #44fce3;
+}
+
+.instruction p{
+    font-size: 12px;
+    line-height: 10px;
+}
+
+@media (min-width: 1024px){
+    .job-title span{
+        display: none !important;
+    }
+}
+
+.job-title{
+    margin-top: -45px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.job-title2{
+    margin-top: -15px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.navitem {
+    z-index: 9;
+    margin-bottom: 25px;
+}
+
+.navitem a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navitem a.active{
+    color: #44fce3;
+}
+
+.menu-overlay{
+    display: none;
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    width: 1000px;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+    opacity: .3;
+    z-index: 10;
+}
+
+.burger-menu {
+    display: none;
+    cursor: pointer;
+    position: absolute; 
+    right: -600px; 
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #181818;
+    transition: .3s ease-in-out;
+    z-index: 14;
+}
+
+
+/* ------------------------Mobile View------------------------------------- */
+
+@media (max-width: 768px){
+    .my-canvas{
+      margin-top: 60px;
+      margin-left: 0px;
+    }
+  
+    .back-objects-container img{
+        margin-left: -30px;
+        width: 180%;
+        height: 300px;
+    }
+}
+
+/* -----------------------------------Tablet and Mobile View--------------------------------------- */
+
+@media (max-width: 1024px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .my-canvas{
+        margin-top: 60px;
+        margin-left: 0px;
+    }
+
+    .homePage .header{
+        position: absolute; top: 0px;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .homePage .header .title-section{
+        margin-top: 20px;
+        display: block;
+        width: 100%;
+        justify-content: center;
+        align-items: start;
+        margin-left: 10px;
+        overflow: hidden;
+    }
+    
+
+    .help{
+        display: none;
+    }
+
+    .smedia-icons{
+        justify-content: left;
+    }
+
+    .title-section .logo{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        z-index: 10;
+    }
+
+    .title-section .under-box span{
+        font-size: 1rem;
+        z-index: 9;
+    }
+
+    .my-head{
+        height: 500px;
+        position: relative; left: 0;
+        z-index: 1;
+     }
+  
+     .my-head::after{
+        background-color: antiquewhite;
+     }
+
+     .homePage .header .title-section .block .greetings{
+        margin-left: 10px;
+        bottom: 5px;
+        opacity: 1;
+     }
+
+     .homePage .header .title-section .block .greetings .home-greetings{
+        opacity: 1;
+    }
+
+     .home-greetings{
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+
+    .homePage .header .title-section .block{
+        margin-left: 10px;
+        width: 100%;
+    }
+
+    .call-to-action{
+        margin-left: 10px;
+    }
+
+    .top-nav-bar{
+        display: none;
+    }
+
+
+    .menu {
+        display: none;
+    }
+
+    .burger-menu {
+        display: flex;
+        position: fixed; 
+        overflow: hidden;
+        top: 0;
+    }
+
+    .burger-menu img{
+        position: absolute;
+        bottom: 100px;
+        left: 24px;
+        width: 200px;
+        opacity: 0.03;
+    }
+
+    .hamburger{
+        position: fixed; top: 15px; right: 20px;
+        z-index: 15;
+    }
+
+    .help{
+        display: none;
+    }
+
+    .hamburger .line{
+        width: 20px;
+        height: 1px;
+        background-color: #ecf0f1;
+        display: block;
+        margin: 6px auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        z-index: 15;
+    }
+    
+    .hamburger:hover{
+        cursor: pointer;
+    }
+
+    .hamburger.is-active .line:nth-child(1),
+    .hamburger.is-active .line:nth-child(3){
+        width: 20px;
+    }
+
+    .hamburger.is-active .line:nth-child(1){
+        -webkit-transform: translateX(5px) translateY(2px) rotate(45deg);
+        -ms-transform: translateX(5px) translateY(2px) rotate(45deg);
+        -o-transform: translateX(5px) translateY(2px) rotate(45deg);
+        transform: translateX(5px) translateY(2px) rotate(45deg);
+        width: 15px;
+    }
+
+    .hamburger.is-active .line:nth-child(3){
+        -webkit-transform: translateX(5px) translateY(-2px) rotate(-45deg);
+        -ms-transform: translateX(5px) translateY(-2px) rotate(-45deg);
+        -o-transform: translateX(5px) translateY(-2px) rotate(-45deg);
+        transform: translateX(5px) translateY(-2px) rotate(-45deg);
+        width: 15px;
+    }
+
+    .hamburger.is-active + .burger-menu{
+        position: fixed; 
+        right: 0;
+    }
+
+    .hamburger + .burger-menu{
+        position: absolute; 
+        right: -600px;
+    }
+
+    .hamburger.is-active + .burger-menu .navitem{
+        color: white;
+        margin-bottom: 25px;
+    }
+
+    .hamburger.is-active ~ .menu-overlay{
+        position: fixed;
+        top: 0;
+        z-index: 11;
+        display: flex;
+    }
+
+    .burger-menu ul{
+        list-style-type: none;
+    }
+
+    .burger-menu a{
+       margin-left: 10px;
+    }
+
+    .burger-menu-navbar{
+        margin-top: 100px;
+    }
+
+    .copyright-mobile{
+        position: absolute;
+        bottom: 5px;
+        left: 65px;
+        opacity: .2;
+    }
+
+    .objects{
+        display: none;
+    }
+
+    .back-objects-container .block2{
+        display: none;
+    }
+}
+
+/* -----------------------------------Tablet View--------------------------------------- */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .homePage .header .title-section{
+        margin-top: 20px;
+        display: block;
+        width: 100%;
+        justify-content: center;
+        align-items: start;
+        overflow: hidden;
+    }
+
+    .homePage .header .title-section .block{
+        margin-left: 30px;
+        width: 100%;
+    }
+}
+

@@ -4,6 +4,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
+// import TimeLine File 
+import Timeline from './Pages/Timeline.jsx';
+
 
 const Experience = () => {
 
@@ -37,7 +40,7 @@ const Experience = () => {
           <div className="work-exp">
               <div className="left-side">
                 <div className="l-box">
-                    <div className="box1">
+                  <div className="box1">
                       <Tilt className='xs:w-[250px] w-full'>
                           <div className="box1-content box-content">
                             <div className="experience">
@@ -67,7 +70,7 @@ const Experience = () => {
                   </div>
                   <div className="box3">
                     <div className="box3-content box-content">
-
+                     
                     </div>
                   </div>
                   <div className="box4">
@@ -86,6 +89,10 @@ const Experience = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <div className="right-side">
+                <Timeline/>
               </div>
           </div>
 

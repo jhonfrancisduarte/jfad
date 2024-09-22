@@ -65,6 +65,13 @@ const Navbar = () => {
         }
     };
 
+    const scrollToExperience = () => {
+        const expSection = document.getElementById('experience');
+        if (expSection) {
+            expSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     useEffect(() => {
         const characterHover = document.querySelector('.character-hover');
         const popMessage = document.querySelector('.pop-message');     
@@ -299,10 +306,19 @@ const Navbar = () => {
                                 <p onClick={scrollToAboutMe}>About Me</p>
                             </div>
                             <div className='nav-p' onClick={onClickRotate}>
+                                <p onClick={scrollToExperience}>Experience</p>
+                            </div>
+                            <div className='nav-p' onClick={onClickRotate}>
                                 <p onClick={scrollToMyWorks}>My Works</p>
                             </div>
                             <div className='nav-p' onClick={onClickRotate}>
                                 <p onClick={scrollToContact}>Contact Me</p>
+                            </div>
+                            <div className='nav-p navIconWrapper' onClick={onClickRotate}>
+                                <img src="images/facebook.png" alt="Facebook" className='navIcon f' onClick={() => window.open('https://www.facebook.com/francis.duarte.319', '_blank')}/>
+                            </div>
+                            <div className='nav-p navIconWrapper navIconWrapper2' onClick={onClickRotate}>
+                                <img src="images/linkedin.png" alt="LinkedIn" className='navIcon' onClick={() => window.open('https://www.linkedin.com/in/jhon-francis-duarte-a93931257/', '_blank')}/>
                             </div>
                         </div>
                 </div>
@@ -313,8 +329,8 @@ const Navbar = () => {
                         <div className='block'>
                             <div className="greetings">
                                 <h1 className='home-greetings'>Hi! <span>I'm Francis</span></h1>
-                                <h5 className='job-title'>I develop 3D visuals, user interfaces, games</h5>
-                                <h5 className='job-title2'>and web applications</h5>
+                                <h5 className='job-title'>I develop 3D visuals, user interfaces, games,</h5>
+                                <h5 className='job-title2'>websites, and web applications</h5>
                             </div>
                             <div className="call-to-action" onClick={onClickRotate}>
                                 <button className='button' onClick={scrollToContact}>
@@ -331,7 +347,7 @@ const Navbar = () => {
                     </div>
 
                     <div className="burger-menu">
-                        <img src="images/logo.png" alt="jfad logo" />
+                        <img src="images/logo.png" alt="jfad logo" className='navbarLogo'/>
                         <ul className="burger-menu-navbar">
                                 <li className="navitem">
                                     <a  
@@ -354,6 +370,15 @@ const Navbar = () => {
                                 <li className="navitem">
                                     <a
                                         href="#"
+                                        className={activeNav === 'experience' ? 'active' : ''}
+                                        onClick={() => scrollToSection('experience')}  
+                                    >
+                                        Experience
+                                    </a>
+                                </li>
+                                <li className="navitem">
+                                    <a
+                                        href="#"
                                         className={activeNav === 'my-works' ? 'active' : ''}
                                         onClick={() => scrollToSection('my-works')}  
                                     >
@@ -368,6 +393,10 @@ const Navbar = () => {
                                     >
                                         Contact Me
                                     </a>
+                                </li>
+                                <li className="navitem nav-social-icon">
+                                    <img src="images/facebook.png" alt="Facebook" className='navIcon f' onClick={() => window.open('https://www.facebook.com/francis.duarte.319', '_blank')}/>
+                                    <img src="images/linkedin.png" alt="LinkedIn" className='navIcon' onClick={() => window.open('https://www.linkedin.com/in/jhon-francis-duarte-a93931257/', '_blank')}/>
                                 </li>
                         </ul>
                         <div className="copyright-mobile">

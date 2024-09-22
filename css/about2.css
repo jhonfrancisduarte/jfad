@@ -1,0 +1,92 @@
+.about2{
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.about2-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 50px;
+    padding: 0 180px;
+}
+
+.flex.justify-center.mt-4{
+    gap: 4;
+}
+
+.bg-blue-500{
+    background: rgb(0, 153, 255);
+    border: 2px solid rgb(0, 153, 255);
+    margin-right: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.bg-gray-300{
+    background: lightgrey;
+    border: 2px solid lightgrey;
+    margin-right: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.bg-gray-300:hover,
+.bg-blue-500:hover{
+    transform: scale(1.1);
+}
+
+.me{
+    width: 400px;
+}
+
+.sideCarret{
+    position: absolute;
+    right: -40px;
+    top: 40%;
+    background: transparent;
+    color: white;
+    font-size: 30px;
+    border: none;
+}
+
+.parentCarousel{
+    position: relative;
+}
+
+.about2-left{
+    width: 100%;
+}
+
+.about2-right{
+    width: 100%;
+}
+
+.spacer{
+    height: 3px;
+    width: 150px;
+    background: linear-gradient(to right, #8ED1FC, #5da4b8);
+    margin-top: -20px;
+    margin-left: -20px;
+}
+
+.highLight{
+    color: #8ED1FC;
+}
+
+
+@media (max-width: 768px){
+    .about2-content{
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .aboutHeader1,
+    .parentCarousel{
+        padding: 0 20px;
+    }
+}

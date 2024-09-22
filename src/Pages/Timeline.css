@@ -11,7 +11,7 @@
 
 .right-side{
     position: relative;
-    z-index: 999;
+    z-index: 9;
     display: flex;
     justify-content: end;
 }
@@ -208,7 +208,7 @@ body {
 
 .timeline-desc{
     text-align: center;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .right-container img {
@@ -274,6 +274,11 @@ body {
 .text-box:hover > .phparrow
 {
     border: 5px solid white;
+}
+
+.text-box:hover > .exp-title,
+.text-box:hover > .companyName{
+    text-decoration: underline;
 }
 
 .htmlarrow {

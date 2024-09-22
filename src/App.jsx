@@ -12,6 +12,7 @@ import { Suspense, useState, useEffect } from 'react'
 import { OrbitControls, useProgress } from '@react-three/drei'
 import React, { useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import About2 from './about2';
 
 const CustomOrbitControls = () => {
   const { camera, gl } = useThree();
@@ -194,6 +195,10 @@ function App() {
                     </div>
                   </div>
               </div>
+            </div>
+
+            <div className='about2'>
+              <About2 />
             </div>
 
             <div className="experience" id='experience'>

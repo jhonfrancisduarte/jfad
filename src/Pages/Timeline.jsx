@@ -44,7 +44,7 @@ const Timeline = () => {
 
                     <div className='text-box javascriptcard' onClick={() => window.open('https://motorcycletourism.tpb.gov.ph/', '_blank')}>
 
-                        <h4 className='exp-title'>Philipine Motorcycle Tourism</h4>
+                        <h4 className='exp-title'>Philippine Motorcycle Tourism</h4>
                         <span className='companyName'>Tourism Promotion Board - PTM</span>
                         <span className='right-container-arrow javascriptarrow'></span>
 

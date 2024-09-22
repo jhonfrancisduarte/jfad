@@ -200,7 +200,7 @@ const About = () => {
   
 
   return (
-    <div className="about" id="aboutme-content">
+    <div className="about">
         <div className="slide" id='scene-container'>
           <img src="images/abstractlines.png" alt="lines" />
         </div>

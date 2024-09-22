@@ -34,7 +34,7 @@ const Works = () => {
                 <img className="network" src="/images/network.png"  />
                 <div className="header">
                     <div className="head">
-                        <p className='sub-header'>PROJECTS</p>
+                        <p className='sub-header'>PERSONAL PROJECTS</p>
                         <h1 className="works-header" ref={title}>My Works</h1>
                         <p className='statement' ref={statement}>The following projects provide actual samples <br />
                             of my work that highlight my abilities and experience. <br /> It displays my aptitude <br />
@@ -60,7 +60,7 @@ const Works = () => {
                             </div>
                             <div className="description">
                                 <h3>Wild Wild West</h3>
-                                <p className='work-desc'>A third-person shooter game created with Unity Engine. It has two play mode: a player vs ai and player vs player.</p>
+                                <p className='work-desc'>A third-person shooter game created with Unity Engine. It has two play mode: mission mode and player vs player.</p>
                             </div>
                             <div className="platforms">
                                 <img src="/images/Unity-logo.png" alt="unity logo" />
@@ -89,8 +89,8 @@ const Works = () => {
                             </div>
                             <div className="description">
                                 <h3>Ava | <span className='desc-span'>Assemble • Disassemble</span></h3>
-                                <p className='work-desc'>A comprehensive, step-by-step simulation 
-                                to correctly assemble or disassemble a desktop computer made with Unity and Blender.</p>
+                                <p className='work-desc'>A part of a mobile app named Ava. It is a step-by-step simulation 
+                                to correctly assemble or disassemble a desktop computer.</p>
                             </div>
                             <div className="platforms">
                                 <img src="/images/Unity-logo.png" alt="unity logo" />
